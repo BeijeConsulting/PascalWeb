@@ -48,8 +48,11 @@ public class HelloWorld extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("HelloWorld POST");
-		String fname = request.getParameter("fname");
+		String fname = request.getParameter("name");
 		String lname = request.getParameter("lname");
+		String button = request.getParameter("rbutt");
+		String[] checks = request.getParameterValues("check");
+
 
 		StringBuilder html = new StringBuilder("<!DOCTYPE html>\r\n" + 
 				"<html>" + 
@@ -61,6 +64,8 @@ public class HelloWorld extends HttpServlet {
 		
 		html.append("FNAME: ").append(fname)
 			.append("<br/>").append("LNAME: ").append(lname)
+			.append("<br/>").append("BUTTON: ").append(button)
+			.append("<br/>").append("CHECK: ").append(checks[1])
 			.append("</body></html>");
 		
 		response.getWriter().append(html.toString());

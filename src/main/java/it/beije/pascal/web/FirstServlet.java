@@ -1,6 +1,7 @@
 package it.beije.pascal.web;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.servlet.ServletException;
@@ -29,11 +30,26 @@ public class FirstServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("FirstServlet POST");
-		String fname = request.getParameter("fname");
-		String lname = request.getParameter("lname");
+		String name 	= request.getParameter("name");
+		String lastname = request.getParameter("lastname");
+		String password = request.getParameter("password");
+		String gender 	= request.getParameter("check_gen");
+		LocalDate bday	= LocalDate.parse(request.getParameter("birthday"));
 		
-		response.getWriter().append("fname: ").append(fname).append(", lname: ").append(lname);		
+		StringBuilder html = new StringBuilder("<!DOCTYPE html>\r\n" + 
+				"<html>" + 
+				"<head>" + 
+				"<meta charset=\"ISO-8859-1\">" + 
+				"<title>PASCAL HTTP SERVLET</title>" + 
+				"</head>" + 
+				"<body>");
+		
+		html.append("name: ").append(name)
+			.append("<br/>").append("last name: ").append(lastname)
+			.append("<br/>").append("gender: ").append(gender)
+			.append("<br/>").append("bday: ").append(bday.toString())
+			.append("</body></html>");
+		response.getWriter().append(html.toString());
 	}
 
 }
