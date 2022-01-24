@@ -21,8 +21,22 @@ public class FirstServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("FirstServlet GET");
-
-		response.getWriter().append("Sone le ").append(LocalTime.now().toString());
+		String fname = request.getParameter("fname");
+		String lname = request.getParameter("lname");
+		StringBuilder html = new StringBuilder("<!DOCTYPE html>\r\n" + 
+				"<html>" + 
+				"<head>" + 
+				"<meta charset=\"ISO-8859-1\">" + 
+				"<title >PASCAL HTTP SERVLET</title>" + 
+				"</head>" + 
+				"<body>" + 
+				"<h1 style=\"background-color:powderblue;\">HELLO WORLD</h1>");
+		html.append("TI CHIAMI: ").append(fname)
+		.append("<br/>").append("COGNOME: ").append(lname);
+		html.append("</br></br> Sone le ").append(LocalTime.now().toString()).append("<br/> <a href='index.html'>clicca</a>");
+		html.append("</body></html>");
+		
+		response.getWriter().append(html.toString());
 	}
 
 	/**

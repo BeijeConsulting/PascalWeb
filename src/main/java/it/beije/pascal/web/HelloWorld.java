@@ -29,16 +29,17 @@ public class HelloWorld extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("HelloWorld GET");
+
 		StringBuilder html = new StringBuilder("<!DOCTYPE html>\r\n" + 
 				"<html>" + 
 				"<head>" + 
 				"<meta charset=\"ISO-8859-1\">" + 
-				"<title>PASCAL HTTP SERVLET</title>" + 
+				"<title >PASCAL HTTP SERVLET</title>" + 
 				"</head>" + 
 				"<body>" + 
-				"<h1>HELLO WORLD</h1>");
+				"<h1 style=\"background-color:powderblue;\">HELLO WORLD</h1>");
 		
-		html.append("Sono le ").append(LocalTime.now().toString()).append("</body></html>");
+		html.append("</body></html>");
 		
 		response.getWriter().append(html.toString());
 	}
@@ -61,6 +62,7 @@ public class HelloWorld extends HttpServlet {
 		
 		html.append("FNAME: ").append(fname)
 			.append("<br/>").append("LNAME: ").append(lname)
+			.append("<br/> <a href='index.html'>clicca</a>")
 			.append("</body></html>");
 		
 		response.getWriter().append(html.toString());
