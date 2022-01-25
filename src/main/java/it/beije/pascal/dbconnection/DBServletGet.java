@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class FileServlet
  */
-@WebServlet("/db")
-public class DBServlet extends HttpServlet {
+@WebServlet("/dbget")
+public class DBServletGet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DBServlet() {
+    public DBServletGet() {
         super();
         // TODO Auto-generated constructor stub
     }
