@@ -7,13 +7,55 @@
 <body>
 <h1>Ciao Pascal!!</h1>
 
-<form action="hello" method="post">
+<form action="hello" method="post" target="_self">
   <label>fname:</label><br>
   <input type="text" name="fname"><br>
   <label>lname:</label><br>
   <input type="text" name="lname"><br><br>
   <input type="submit" value="Submit">
 </form> 
+
+<br><br><br>
+
+<h2>Per leggere contatti da database</h2>
+
+<form action="LeggiDatabase" method="get">
+	<label>Cognome del contatto da cercare:</label><br><br>
+  	<input type="text" name="cognome">
+  	<input type="submit" value="Submit"><br><br>
+</form> 
+
+<a href="LeggiJDBC">Leggi tutti i contatti da db</a>
+
+<br><br><br>
+
+<h2>Per aggiungere un nuovo contatto al database</h2>
+
+<form action="AggiungiContatto" method="post" target="_self">
+  <label>Nome:</label><br>
+  <input type="text" name="nome"><br><br>
+  <label>Cognome:</label><br>
+  <input type="text" name="cognome"><br><br>
+  <label>Email:</label><br>
+  <input type="text" name="email"><br><br>
+  <label>Telefono:</label><br>
+  <input type="text" name="telefono"><br><br>
+  <label>Note:</label><br>
+  <input type="text" name="note"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<br><br><br>
+
+<h2>Per leggere un file CSV/XML</h2>
+
+<form action="leggi" method="get">
+	<label>Inserisci il path del file da leggere</label>
+	<input type="text" name="path">
+	<input type="submit" value="Submit">
+</form>
+
+<br><br><br>
 
 </body>
 </html>

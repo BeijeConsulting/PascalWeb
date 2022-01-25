@@ -36,7 +36,7 @@ public class HelloWorld extends HttpServlet {
 				"<title>PASCAL HTTP SERVLET</title>" + 
 				"</head>" + 
 				"<body>" + 
-				"<h1>HELLO WORLD</h1>");
+				"<h1 style=\"color:red\">HELLO WORLD</h1>");
 		
 		html.append("Sono le ").append(LocalTime.now().toString()).append("</body></html>");
 		
@@ -60,8 +60,12 @@ public class HelloWorld extends HttpServlet {
 				"<body>");
 		
 		html.append("FNAME: ").append(fname)
-			.append("<br/>").append("LNAME: ").append(lname)
-			.append("</body></html>");
+			.append("<br/>").append("LNAME: ").append(lname);
+		
+		html.append("<br>Complimenti hai davvero un bel nome" + "<br>" +
+				"<a href=\"first_servlet\">clicca se vuoi sapere l'ora</a>");
+		
+		html.append("</body></html>");
 		
 		response.getWriter().append(html.toString());
 	}
