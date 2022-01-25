@@ -33,7 +33,7 @@ public class CSVServlet extends HttpServlet {
 					+ "<meta charset=\"ISO-8859-1\">" + "<title >Data form database</title>" + "</head>" + "<body>"
 					+ "<h1 style=\"background-color:powderblue;\">Contatti da Database</h1>");
 
-			List<Contatto> contatti = JPAmanager.categoriaJPA();
+			List<Contatto> contatti = JPAmanager.allContatti();
 
 			for (Contatto contatto : contatti) {
 				html.append(contatto);

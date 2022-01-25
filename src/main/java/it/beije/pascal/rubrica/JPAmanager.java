@@ -27,7 +27,7 @@ public class JPAmanager {
 		return entityManagerFactory.createEntityManager();
 	}
 	
-	public static List<Contatto> categoriaJPA() {
+	public static List<Contatto> allContatti() {
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
 	
 		

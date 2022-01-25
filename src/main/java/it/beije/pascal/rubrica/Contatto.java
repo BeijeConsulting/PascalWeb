@@ -111,7 +111,7 @@ public class Contatto {
 				.append(", nome : ").append(this.nome)
 				.append(", telefono : ").append(this.telefono)
 				.append(", email : ").append(this.email)
-				.append(", note : ").append(this.note).append(" }");
+				.append(", note : ").append(this.note).append(" }\n");
 		
 		return builder.toString();
 	}
