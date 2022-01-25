@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><rubrica>
+	<contatto eta="30">
+		<nome>Mario</nome>
+		<cognome>Rossi</cognome>
+		<telefono>3337658390</telefono>
+		<email>mario.rossi@tim.it</email>
+		<note>compagno di squadra</note>
+	</contatto>
+	<contatto eta="35">
+		<nome>Claudio</nome>
+		<cognome>Bianchi</cognome>
+		<telefono>3352672537</telefono>
+		<email>claudio.white@virgilio.it</email>
+	</contatto>
+<nuovotag nome="ciao"><tagInterno>cioa come stai</tagInterno></nuovotag><contatto><nome>mario</nome><cognome>rossi</cognome><telefono>mario@rossi.it</telefono><email>333333333</email><note/></contatto><contatto><nome>carlo maria</nome><cognome>rossi</cognome><telefono>carlo@rossi.it</telefono><email>333333334</email><note/></contatto><contatto><nome>giovanni</nome><cognome>rossi</cognome><telefono>giovanni@rossi.it</telefono><email>333333335</email><note/></contatto></rubrica>

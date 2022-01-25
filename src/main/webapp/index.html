@@ -2,18 +2,68 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>PASCAL WEB INDEX</title>
+<title>Pascal Index</title>
+<style>
+a:link, a:visited {
+  background-color: green;
+  color: white;
+  border: 2px solid green;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: white;
+  color: green;
+}
+
+body {
+	max-width: 900px;
+ 	margin: auto;
+}
+</style>
 </head>
 <body>
-<h1>Ciao Pascal!!</h1>
+<h1>Ciao Pascal!</h1>
 
-<form action="hello" method="post">
-  <label>fname:</label><br>
+<h2>Qui puoi lavorare con il database</h2>
+
+<form action="contatti" method="get">
+  <!--   <label>fname:</label><br>
   <input type="text" name="fname"><br>
   <label>lname:</label><br>
   <input type="text" name="lname"><br><br>
-  <input type="submit" value="Submit">
+  -->
+  <p>Vuoi vedere tutti i contatti?</p>
+  <input type="submit" value="Clicca qui!">
 </form> 
+
+<div>
+<h2>Aggiungi un contatto!</h2>
+<form action="contatti" method="post">
+	<label for="fist_name">Nome</label>
+	<input style="margin:10px" type="text" name="first_name">
+	
+	<label for="last_name">Cognome</label>
+	<input style="margin:10px" type="text" name="last_name"><br />
+	
+	<label for="tel">Telefono</label>
+	<input style="margin:10px" type="text" name="tel">
+	
+	<label for="email">Email</label>
+	<input style="margin:10px" type="text" name="email"><br />
+	
+	<label for="notes">Note</label>
+	<input style="margin:10px" type="text" name="notes"><br />
+	
+	<input type="submit" value="Aggiungi" />
+</form>
+</div>
+
+<br />
+<a href="file.html">Vuoi leggere qualcosa da file?</a>
 
 </body>
 </html>
