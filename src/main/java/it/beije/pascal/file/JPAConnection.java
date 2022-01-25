@@ -1,4 +1,4 @@
-package it.beije.pascal.dbconnection;
+package it.beije.pascal.file;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +8,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-
-
-import it.beije.pascal.rubrica.Contatto;
-import it.beije.pascal.rubrica.EntityManagerProvider;
-
 public class JPAConnection {
 	public static final String JPA_DUPLICATES = "SELECT {c1.*}, {c2.*}  FROM Contatti c1, Contatti c2 WHERE c1.cognome = c2.cognome;";
 	//public static final String DELETE_CONTACT = "DELETE FROM contatti WHERE (id = ?)";
@@ -21,7 +16,7 @@ public class JPAConnection {
 	static EntityManager entityManager = EntityManagerProvider.getEntityManager();
 	
 	public static void main(String[] args) {
-		deleteAll();
+		//deleteAll();
 	}
 	
 	public void Insert(Contatto c) {
@@ -32,7 +27,7 @@ public class JPAConnection {
 	}
 	
 	
-	public List<Contatto> SelectAll() {
+	public static List<Contatto> SelectAll() {
 		Query query = entityManager.createQuery("SELECT c FROM Contatto as c");//SELECT * FROM contatti
 		List<Contatto> listcontatti = query.getResultList();
 		return listcontatti;
