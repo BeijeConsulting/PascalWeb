@@ -43,7 +43,7 @@ public class FileServlet extends HttpServlet {
 	    System.out.println("SUUUS");
 	    List<Contatto> listcontatto = XMLCSVmanager.loadRubricaFromCSV(fileContent);
 	    for(Contatto c : listcontatto) {
-	    response.getWriter().append(c.toString());
+	    response.getWriter().append(c.toString() + "\n");
 	    }
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
