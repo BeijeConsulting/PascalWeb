@@ -9,14 +9,4 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>ListAllServlet</display-name>
-    <servlet-name>ListAllServlet</servlet-name>
-    <servlet-class>it.beije.pascal.web.DbRubricaServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ListAllServlet</servlet-name>
-    <url-pattern>/list_contatti</url-pattern>
-  </servlet-mapping>
 </web-app>

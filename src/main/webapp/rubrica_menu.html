@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Rubrica</title>
+</head>
+<body>
+	<iframe name="result" width="1024"></iframe>
+	<form action="add_contatto" method="post" target="result">
+		<fieldset>
+			<legend>Inserisci: </legend>
+			<label>Nome: </label> <br> <input name="name" type="text">
+			<br> <label>Cognome: </label> <br> <input name="lastname"
+				type="text"> <br> <label>Telefono</label> <br> <input
+				name="phone" type="tel"> <br> <label>Nome</label> <br>
+			<input name="email" type="email"> <br> <label>Email
+			</label> <br> <input name="note" type="text"> <br> 
+			<input type="submit" value="Submit">
+		</fieldset>
+	</form>
+	<form action="list_contatti" target="result">
+		<fieldset>
+			<legend>Lista i contatti</legend>
+			<br> <input type="submit" value="Submit">
+		</fieldset>
+	</form>
+
+	<fieldset>
+		<legend>Importa</legend>
+		<form action="import_csv" target="result" method="post">
+		<label>CSV: seleziona file</label>
+			<input	type="submit" value="Carica CSV"><br>
+		</form>
+		<form action="import_xml" target="result" method="post">
+		<label>XML: </label>
+			<input type="submit" value="Carica XML"><br>
+		</form>
+	</fieldset>
+	
+	<fieldset >
+		<legend>Cerca</legend>
+		<form action="cerca_nome" method="post" target="result">
+		<label>Nome: </label>
+		<input type="text" name="nome"><br>
+		<label>Cognome: </label>
+		<input type="text" name="cognome"><br>
+		<input type="submit" value="Cerca">
+		</form>
+	</fieldset>
+	<fieldset>
+		<legend>Modifica </legend>
+		<form action="modifica" method="post" target="da_modificare">
+			<label>Id:</label>
+			<input type="number" name="id">
+			<input type="submit" value="Cerca" name="visualizza">
+		</form>
+		<iframe name="da_modificare" ></iframe>
+	</fieldset>
+	
+	<form action="modifica_form.jsp" target="result">
+	<fieldset>
+	<legend>Seleziona contatto:</legend>
+		<label>Id:</label>
+			<input type="number" name="id">
+			<input type="submit" value="Cerca" name="visualizza">
+	</fieldset>
+	</form>
+
+</body>
+</html>
