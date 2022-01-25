@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 public class RubricaJPAManager {
-	public List<Contatto> getRubrica(){
+	public static List<Contatto> getRubrica(){
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
 		
 		Query query = entityManager.createQuery("SELECT c FROM Contatto as c");
