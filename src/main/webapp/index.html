@@ -5,25 +5,63 @@
 <title>PASCAL WEB INDEX</title>
 </head>
 <body>
-	<h1>Ciao Pascal!!</h1>
-	
-	<h3>Prova Post</h3>
-	<form action="hello" method="post">
-		<label>fname:</label><br> <input type="text" name="fname"><br>
-		<label>lname:</label><br> <input type="text" name="lname"><br>
-		<br> <input type="submit" value="Submit">
+	<h1 align="center">Inserimento nuovo utente</h1>
+
+	<iframe name="prova" srcdoc="csv_servlet"> </iframe>
+
+	<h3 align="center">Nuovo Utente</h3>
+	<form action="csv_servlet" method="post" align="center">
+		<label>congome:</label><br> <input type="text" name="cognome"><br>
+		<label>nome:</label><br> <input type="text" name="nome"><br>
+		<label>telefono:</label><br> <input type="text" name="telefono"><br>
+		<label>email:</label><br> <input type="text" name="email"><br>
+		<label>note:</label><br> <input type="text" name="note"><br>
+		<br> <input type="submit" value="Insert" name="insert">
 	</form>
-	
-	</br>
-	</br>
-	</br>
-	</br>
-	
-	<h3>Prova GET</h3>
-	<form action="first_servlet" method="get">
-		<label>fname:</label><br> <input type="text" name="fname"><br>
-		<label>lname:</label><br> <input type="text" name="lname"><br>
-		<input type="submit" value="Submit">
+	<hr>
+	<form action="csv_servlet" method="post" align="center">
+		<h1>Cerca contatti</h1>
+		<label>Category:</label> <select name="category" id="category">
+			<option value="nome">Nome</option>
+			<option value="cognome">Cognome</option>
+			<option value="telefono">telefono</option>
+			<option value="email">email</option>
+			<option value="note">note</option>
+		</select> <br> <label>value:</label><br> <input type="text"
+			name="value"> <br> <br> <input type="Submit"
+			value="Find" name="select">
+	</form>
+	<hr>
+	<h1 align="center">Contatti dal database</h1>
+	<form action="csv_servlet" method="get" align="center">
+		<input type="submit" value="GetFromDataBase" name="DataBase">
+	</form>
+	<hr>
+	<h1 align="center">Contatti dal CSV</h1>
+	<form action="csv_servlet" method="get" align="center">
+		<input type="submit" value="GetCSV" name="CSV">
+	</form>
+
+	<form action="csv_servlet" target="prova" method="get" align="center">
+		<input type="submit" value="GetCSVinFrame" name="CSV">
+	</form>
+
+	<hr>
+	<h1 align="center">Update contatto Database</h1>
+	<form action="csv_servlet" method="post" align="center">
+		<label>id del contatto</label><br> <input type="text"
+			name="idcontatto"><br> <label>categoria:</label><br>
+		<input type="text" name="cat"><br> <label>nuovo
+			valore:</label><br> <input type="text" name="newvalue"><br>
+		<input type="submit" value="update" name="update">
+	</form>
+
+	<hr>
+	<h1 align="center">Delete contatto Database</h1>
+	<form action="csv_servlet" method="post" align="center">
+		<label>id del contatto</label><br> <input type="text"
+			name="idcontatto"><br> <input type="submit"
+			value="delete" name="delete">
 	</form>
 </body>
 </html>
