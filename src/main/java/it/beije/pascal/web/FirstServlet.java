@@ -47,7 +47,7 @@ public class FirstServlet extends HttpServlet {
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
 		
-		response.getWriter().append("fname: ").append(fname).append(", lname: ").append(lname);		
+		response.getWriter().append("fname: ").append(fname).append(", lname: ").append(lname);
 	}
 
 }
