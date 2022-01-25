@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 
 /**
  * Servlet implementation class HelloWorld
@@ -33,12 +35,15 @@ public class HelloWorld extends HttpServlet {
 				"<html>" + 
 				"<head>" + 
 				"<meta charset=\"ISO-8859-1\">" + 
-				"<title>PASCAL HTTP SERVLET</title>" + 
+				"<title>PASCAL SERVLET</title>" + 
 				"</head>" + 
 				"<body>" + 
 				"<h1 style=\"color:red\">HELLO WORLD</h1>");
 		
-		html.append("Sono le ").append(LocalTime.now().toString()).append("</body></html>");
+		html.append("Sono le ").append(LocalTime.now().toString())
+			.append("<br/>").append(request.getSession().getAttribute("fname"))
+			.append(" ").append(request.getSession().getAttribute("lname"))
+			.append("</body></html>");
 		
 		response.getWriter().append(html.toString());
 	}
@@ -50,24 +55,38 @@ public class HelloWorld extends HttpServlet {
 		System.out.println("HelloWorld POST");
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("fname", fname);
+		session.setAttribute("lname", lname);
 
-		StringBuilder html = new StringBuilder("<!DOCTYPE html>\r\n" + 
-				"<html>" + 
-				"<head>" + 
-				"<meta charset=\"ISO-8859-1\">" + 
-				"<title>PASCAL HTTP SERVLET</title>" + 
-				"</head>" + 
-				"<body>");
-		
-		html.append("FNAME: ").append(fname)
-			.append("<br/>").append("LNAME: ").append(lname);
-		
-		html.append("<br>Complimenti hai davvero un bel nome" + "<br>" +
-				"<a href=\"first_servlet\">clicca se vuoi sapere l'ora</a>");
-		
-		html.append("</body></html>");
-		
-		response.getWriter().append(html.toString());
+//		StringBuilder html = new StringBuilder("<!DOCTYPE html>\r\n" + 
+//				"<html>" + 
+//				"<head>" + 
+//				"<meta charset=\"ISO-8859-1\">" + 
+//				"<title>PASCAL HTTP SERVLET</title>" + 
+//				"</head>" + 
+//				"<body>");
+//		
+//		html.append("FNAME: ").append(fname)
+//			.append("<br/>").append("LNAME: ").append(lname)
+//			.append("</body></html>");
+//		
+//		response.getWriter().append(html.toString());
+//		
+//
+//		html.append("FNAME: ").append(fname)
+//			.append("<br/>").append("LNAME: ").append(lname);
+//		
+//		html.append("<br>Complimenti hai davvero un bel nome" + "<br>" +
+//				"<a href=\"first_servlet\">clicca se vuoi sapere l'ora</a>");
+//		
+//		html.append("</body></html>");
+//		
+//		response.getWriter().append(html.toString());
+
+		response.sendRedirect("hello.jsp");
+
 	}
 
 }
