@@ -11,36 +11,43 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.beije.pascal.rubrica.Contatto;
 import it.beije.pascal.rubrica.DatabaseConnection;
+import it.beije.pascal.rubrica.RubricaCSV;
 import it.beije.pascal.rubrica.RubricaJPA;
+import it.beije.pascal.rubrica.RubricaXML;
 
 /**
- * Servlet implementation class CercaNomeServlet
+ * Servlet implementation class ImportCsvServlet
  */
-@WebServlet("/cerca_nome")
-public class CercaNomeServlet extends HttpServlet {
+@WebServlet("/import_file")
+public class ImportFileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private DatabaseConnection rubricaDB;  
-	
+	private DatabaseConnection rubricaDB;
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CercaNomeServlet() {
+    public ImportFileServlet() {
         super();
-        rubricaDB = new RubricaJPA();
-    }
+        rubricaDB = new RubricaJPA();    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome = request.getParameter("nome");
-		String cognome = request.getParameter("cognome");
-		List<Contatto> contattiList = rubricaDB.cercaContattoNomeCognome(nome, cognome);
+		List<Contatto> contatti;
 		
-//		response.getWriter().append(ContattoWebUtil.tabellaContattiHtml(contattiList));
+		String fileName = request.getParameter("nome_file");
+		if(fileName == null) return;
+		if(fileName.endsWith(".csv"))
+			contatti = RubricaXML.loadRubricaFromXML(fileName);
+		else if(fileName.endsWith(".xml"))
+			contatti = RubricaCSV.loadRubricaFromCSV(fileName, RubricaCSV.STANDARD_SEPARATOR);
+		else {
+			return;
+		}
 		
-		request.getSession().setAttribute("contatti_list", contattiList);
-		response.sendRedirect("tabella_ricerca.jsp");
+		request.getSession().setAttribute("contatti_list", contatti);
+		response.sendRedirect("list_contatti");
 	}
 
 	/**
@@ -49,7 +56,6 @@ public class CercaNomeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
 	}
 
 }

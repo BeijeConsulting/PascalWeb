@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<table>
 		<tr>
 			<th>ID</th>
@@ -25,6 +26,7 @@
 			{
 		%>
 		
+		
 		<tr>
 			<td><%=c.getId() %></td>
 			<td><%=c.getNome() %></td>
@@ -34,7 +36,9 @@
 			<td><%=c.getNote() %></td>
 		</tr>
 		
+		
 		<%}} %>
 	</table>
+	
 </body>
 </html>

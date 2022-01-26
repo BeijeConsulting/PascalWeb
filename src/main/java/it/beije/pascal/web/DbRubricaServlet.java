@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import it.beije.pascal.rubrica.Contatto;
 import it.beije.pascal.rubrica.DatabaseConnection;
 import it.beije.pascal.rubrica.RubricaJPA;
-import it.beije.pascal.web.util.ContattoWebUtil;
 
 /**
  * Servlet implementation class DbRubricaServlet
@@ -36,8 +35,8 @@ public class DbRubricaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO maybe add html table
-		List<Contatto> contattiList = rubricaDB.listAllOrderedBy("cognome", true);
+		boolean ascendent = ((String) request.getAttribute("order_direction")).equals("ascendente");
+		List<Contatto> contattiList = rubricaDB.listAllOrderedBy((String)request.getAttribute("order_column"), ascendent);
 		
 //		response.getWriter().append(ContattoWebUtil.tabellaContattiHtml(contattiList));
 		request.getSession().setAttribute("contatti_list", contattiList);
