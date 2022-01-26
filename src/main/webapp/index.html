@@ -5,18 +5,20 @@
 <title>PASCAL WEB INDEX</title>
 </head>
 <body>
+<div style="background-color: lightblue; padding: 18px;">
 <h1>Ciao Pascal!!</h1>
 
-<form action="hello" method="post" target="_self">
+<form action="hello" method="post">
   <label>fname:</label><br>
   <input type="text" name="fname"><br>
   <label>lname:</label><br>
   <input type="text" name="lname"><br><br>
   <input type="submit" value="Submit">
 </form> 
-
+</div>
 <br><br><br>
-
+<hr>
+<div style="background-color: lightblue; padding: 18px;">
 <h2>Per leggere contatti da database</h2>
 
 <form action="LeggiDatabase" method="get">
@@ -26,9 +28,10 @@
 </form> 
 
 <a href="LeggiJDBC">Leggi tutti i contatti da db</a>
-
+</div>
 <br><br><br>
-
+<hr>
+<div style="background-color: lightblue; padding: 18px;">
 <h2>Per aggiungere un nuovo contatto al database</h2>
 
 <form action="AggiungiContatto" method="post" target="_self">
@@ -44,9 +47,10 @@
   <input type="text" name="note"><br><br>
   <input type="submit" value="Submit">
 </form>
-
+</div>
 <br><br><br>
-
+<hr>
+<div style="background-color: lightblue; padding: 18px;">
 <h2>Per leggere un file CSV/XML</h2>
 
 <form action="leggi" method="get">
@@ -54,8 +58,9 @@
 	<input type="text" name="path">
 	<input type="submit" value="Submit">
 </form>
-
+</div>
 <br><br><br>
+
 
 </body>
 </html>

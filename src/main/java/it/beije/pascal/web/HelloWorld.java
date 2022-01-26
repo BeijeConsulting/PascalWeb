@@ -73,17 +73,6 @@ public class HelloWorld extends HttpServlet {
 //			.append("</body></html>");
 //		
 //		response.getWriter().append(html.toString());
-//		
-//
-//		html.append("FNAME: ").append(fname)
-//			.append("<br/>").append("LNAME: ").append(lname);
-//		
-//		html.append("<br>Complimenti hai davvero un bel nome" + "<br>" +
-//				"<a href=\"first_servlet\">clicca se vuoi sapere l'ora</a>");
-//		
-//		html.append("</body></html>");
-//		
-//		response.getWriter().append(html.toString());
 
 		response.sendRedirect("hello.jsp");
 

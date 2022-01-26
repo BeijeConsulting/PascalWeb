@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -36,6 +37,7 @@ public class AggiungiContatto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		Configuration configuration = new Configuration().configure().addAnnotatedClass(Contatto.class);
 
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -49,7 +51,7 @@ public class AggiungiContatto extends HttpServlet {
 		String telefono = request.getParameter("telefono");
 		String email = request.getParameter("email");
 		String note = request.getParameter("note");
-
+		
 		Contatto newContatto = new Contatto();
 		newContatto.setId(13);
 		newContatto.setCognome(cognome);
@@ -59,12 +61,16 @@ public class AggiungiContatto extends HttpServlet {
 		newContatto.setNote(note);
 
 		session.save(newContatto);
+		
+		HttpSession sessione = request.getSession();
+		sessione.setAttribute("contatto", newContatto);
 
 		transaction.commit();
 
 		session.close();
 		
-		response.getWriter().append("Il contatto " + newContatto + " è stato aggiunto").append(request.getContextPath());
+		response.sendRedirect("leggiContatti.jsp");
+//		response.getWriter().append("Il contatto " + newContatto + " è stato aggiunto").append(request.getContextPath());
 	}
 
 }

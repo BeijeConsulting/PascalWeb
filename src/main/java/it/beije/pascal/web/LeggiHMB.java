@@ -1,7 +1,12 @@
 package it.beije.pascal.web;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -16,12 +21,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-
 /**
- * Servlet implementation class LeggiDatabase
+ * Servlet implementation class LeggiJDBC
  */
-@WebServlet("/LeggiDatabase")
-public class LeggiDatabase extends HttpServlet {
+@WebServlet("/LeggiJDBC")
+public class LeggiHMB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -30,30 +34,19 @@ public class LeggiDatabase extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		Configuration configuration = new Configuration().configure().addAnnotatedClass(Contatto.class);
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 
 		Session session = sessionFactory.openSession();
 
 		Query<Contatto> query = session.createQuery("SELECT c FROM Contatto as c");
-		
+
 		List<Contatto> contatti = query.getResultList();
 		
-		String cognome = request.getParameter("cognome");
-		
-		HttpSession sessione = inviaSessione(contatti, cognome, request);
+		HttpSession sessione = request.getSession();
+		sessione.setAttribute("contatti", contatti);
 
-//		StringBuilder sb = new StringBuilder();
-//		for (Contatto c : contatti) {
-//			if(c.getCognome().equals(cognome)) {
-//				sb.append(c);
-//				sb.append('\n');
-//			}
-//		}
-//
-//		response.getWriter().append(sb);
-		
 		response.sendRedirect("mostraContatti.jsp");
 	}
 
@@ -65,20 +58,6 @@ public class LeggiDatabase extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-	}
-	
-	public static HttpSession inviaSessione(List<Contatto> contatti, String cognome, HttpServletRequest request) {
-		List<Contatto> contacts = new ArrayList<Contatto>();
-		for(Contatto c : contatti) {
-			if(c.getCognome().equalsIgnoreCase(cognome)) {
-				contacts.add(c);
-			}
-		}
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("contatti", contacts);
-		
-		return session;
 	}
 
 }
