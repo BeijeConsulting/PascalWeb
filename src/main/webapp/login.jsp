@@ -16,12 +16,14 @@ if (error != null) {
 }
 %>
 
-	<form action="login" method="post">
-	  <label for="username">username:</label><br>
-	  <input type="text" name="user_name"><br>
+	<form action="immobiliareServlet" method="post" align="center">
+	<h2> Login </h2>
+	  <label for="username">email:</label><br>
+	  <input type="text" name="email"><br>
 	  <label for="password">password:</label><br>
-	  <input type="text" name="pass_word"><br><br>
-	  <input type="submit" value="Submit">
+	  <input type="text" name="password"><br><br>
+	  <input type="submit" value="Submit" name="Login">
+	  <input type="submit" value="Registrati" name="Registrazione">
 	</form> 
 
 </body>

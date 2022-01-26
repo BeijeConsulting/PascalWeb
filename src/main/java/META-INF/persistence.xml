@@ -10,6 +10,8 @@
 		<class>it.beije.pascal.shop.Order</class>
 		<class>it.beije.pascal.shop.Product</class>
 		<class>it.beije.pascal.shop.Order_Item</class>
+		<class>it.beije.pascal.immobiliare.Utente</class>
+			<class>it.beije.pascal.immobiliare.Annuncio</class>
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
@@ -17,7 +19,7 @@
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/rubrica" />
+				value="jdbc:mysql://localhost:3306/domus" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password"
 				value="Chinetti" />
