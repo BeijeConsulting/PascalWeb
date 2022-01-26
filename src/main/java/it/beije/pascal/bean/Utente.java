@@ -18,8 +18,8 @@ public class Utente {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="commerciale_id")
-	private Timestamp commmercialeId;
+//	@Column(name="commerciale_id")
+//	private int commmercialeId;
 	
 	@Column(name="email")
 	private String email;
@@ -38,10 +38,10 @@ public class Utente {
 
 	@Column(name="username")
 	private String username;
-//	
+	
 //	@Column(name="create_timestamp")
 //	private Timestamp timeStamp;
-//	
+	
 	public int getId() {
 		return id;
 	}
