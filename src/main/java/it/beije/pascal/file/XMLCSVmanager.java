@@ -146,7 +146,7 @@ public class XMLCSVmanager {
 	}
 	
 	
-	public List<Contatto> loadRubricaFromXML(InputStream file)  throws Exception {
+	public static List<Contatto> loadRubricaFromXML(InputStream file)  throws Exception {
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 		List<Contatto> contactList = new ArrayList<Contatto>();

@@ -2,6 +2,7 @@ package it.beije.pascal.dbconnection;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -37,11 +38,20 @@ public class FileServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Contatto> listcontatto = new ArrayList<>();
 	    Part filePart = request.getPart("file"); 
 	    String fileName = filePart.getSubmittedFileName();
 	    InputStream fileContent = filePart.getInputStream();
-	    System.out.println("SUUUS");
-	    List<Contatto> listcontatto = XMLCSVmanager.loadRubricaFromCSV(fileContent);
+	    String choice = request.getParameter("button");
+	    if(choice.equals("CSV")) {
+	    	listcontatto = XMLCSVmanager.loadRubricaFromCSV(fileContent);
+	    } else
+			try {
+				listcontatto = XMLCSVmanager.loadRubricaFromXML(fileContent);
+			} catch (Exception e) {
+				System.out.println("Errore lettura XML");
+				e.printStackTrace();
+			}
 	    for(Contatto c : listcontatto) {
 	    response.getWriter().append(c.toString() + "\n");
 	    }
