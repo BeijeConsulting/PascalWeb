@@ -1,4 +1,4 @@
-package it.beije.pascal.dbconnection;
+package it.beije.pascal.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

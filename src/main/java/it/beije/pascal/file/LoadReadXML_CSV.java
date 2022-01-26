@@ -1,6 +1,4 @@
 package it.beije.pascal.file;
-import it.beije.pascal.dbconnection.Contatto;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -22,6 +20,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import it.beije.pascal.bean.Contatto;
 
 public class LoadReadXML_CSV {	
 	public static List<Contatto> loadRubricaFromCSV(InputStream file) throws IOException {

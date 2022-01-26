@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import org.w3c.dom.html.HTMLDocument;
-import it.beije.pascal.dbconnection.Contatto;
+
+import it.beije.pascal.bean.Contatto;
 
 /**
  * Servlet implementation class FileServlet

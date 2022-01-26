@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+import it.beije.pascal.bean.Contatto;
+
 public class RubricaJPAManager {
 	public static List<Contatto> getRubrica(){
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
