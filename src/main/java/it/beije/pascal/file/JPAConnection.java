@@ -19,7 +19,7 @@ public class JPAConnection {
 		//deleteAll();
 	}
 	
-	public void Insert(Contatto c) {
+	public static void Insert(Contatto c) {
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
 		entityManager.persist(c);

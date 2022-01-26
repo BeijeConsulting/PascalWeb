@@ -18,7 +18,7 @@
   <input type="submit" value="leggi da DB"><br><br>
 </form> 
 
-<form action="fileservlet" method="post">
+<form action="insertdb.html" method="post">
   <input type="submit" value="Inserisci un contatto"><br><br>
 </form> 
 </body>
