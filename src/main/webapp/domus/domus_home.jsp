@@ -23,6 +23,39 @@ Welcome
      
 <a href="domus_registration.jsp">Registrazione</a>
 <%} %>
+
+<form action = "ricerca" method = "get">
+	<label for = "tipoImmobile">Cerco</label>
+		<select name = "tipoImmobile" onchange="javascript:handleSelect(this)">
+			<option>Qualsiasi</option>	
+			<option>Casa</option>		
+			<option>Nuova costruzione</option>
+			<option>Immobile o attività commerciale</option>				
+			<option>Terreno</option>	
+			<option>Garage o posto auto</option>				
+		</select>
+		
+	<label for = "tipoAnnuncio">In</label>
+		<select name = "tipoAnnuncio">
+			<option>Vendita</option>		
+			<option>Affitto</option>	
+			<option>Affitto breve</option>			
+		</select>
+		
+	<label for = "localita">a</label>
+		<select name = "localita">
+			<option>Milano</option>		
+			<option>Vercelli</option>	
+			<option>Roma</option>	
+			<option>Genova</option>		
+			<option>Torino</option>
+			<option>Firenze</option>		
+			<option>Bologna</option>
+			<option>Napoli</option>			
+		</select>
+	<input type = "submit" value = "cerca">
+</form>
+
 <a href="crea_annuncio.jsp">Crea nuovo annuncio</a>
 </body>
 </html>
