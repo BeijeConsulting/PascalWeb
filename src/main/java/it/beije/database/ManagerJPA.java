@@ -38,4 +38,20 @@ public class ManagerJPA {
 		
 	}
 	
+	public static Utente searchUser(String name, String psw) {
+		
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+			
+		Query query = entityManager.createQuery("SELECT c FROM Utente as c WHERE c.username = '" + name + "'" +
+				  " and c.password = '" + psw + "'");
+		
+		Utente utente = (Utente) query.getSingleResult();
+		entityManager.close();
+		
+		System.out.println("Hey, questo è quello che hai cercato: "+utente);
+		
+		return utente;
+		
+	}
+	
 }
