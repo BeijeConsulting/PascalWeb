@@ -66,4 +66,16 @@ public class DomusJPA {
 		em.close();
 	}
 	
+	public static void insertIndirizzo(Indirizzo indirizzo) {
+		EntityManager em = EntityManagerProvider.getEntityManager();
+		EntityTransaction et = em.getTransaction();
+		
+		et.begin();
+		em.persist(indirizzo);
+		et.commit();
+		em.close();
+
+		
+	}
+	
 }
