@@ -27,16 +27,16 @@ public class Annuncio {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@Column(name = "venditore_id")
-	private int venditoreId;
+	private Integer venditoreId;
 	@Column(name = "piantina_id")
-	private int piantinaId;
+	private Integer piantinaId;
 	@Column(name = "indirizzo_id")
-	private int indirizzoId;
+	private Integer indirizzoId;
 	@Column(name = "edificio_id")
-	private int edificioId;
+	private Integer edificioId;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_immobile")
@@ -44,16 +44,16 @@ public class Annuncio {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_annuncio")
 	private TipoAnnuncio tipoAnnuncio;
-	private int prezzo;
-	private int mq;
-	private int locali;
-	private int bagni;
+	private Integer prezzo;
+	private Integer mq;
+	private Integer locali;
+	private Integer bagni;
 	@Column(name = "tot_piani")
-	private int totPiani;
-	private int piano;
+	private Integer totPiani;
+	private Integer piano;
 	private boolean ascensore;
 	@Column(name = "posti_auto")
-	private int postiAuto;
+	private Integer postiAuto;
 	private boolean balcone;
 	private boolean terrazzo;
 	private Giardino giardino;
@@ -66,7 +66,7 @@ public class Annuncio {
 	private Arredamento arredamento;
 	private boolean piscina;
 	private boolean portineria;
-	private int anno_costruzione;
+	private Integer anno_costruzione;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "stato_rogito")
 	private StatoRogito statoRogito;
@@ -78,35 +78,35 @@ public class Annuncio {
 	private boolean virtualTour;
 //	@Column(name = "create_timestamp")
 //	private Timestamp createTimestamp;
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getVenditoriId() {
+	public Integer getVenditoriId() {
 		return venditoreId;
 	}
-	public void setVenditoriId(int venditoriId) {
+	public void setVenditoriId(Integer venditoriId) {
 		this.venditoreId = venditoriId;
 	}
 
-	public int getPiantinaId() {
+	public Integer getPiantinaId() {
 		return piantinaId;
 	}
-	public void setPiantinaId(int piantinaId) {
+	public void setPiantinaId(Integer piantinaId) {
 		this.piantinaId = piantinaId;
 	}
-	public int getIndirizzoId() {
+	public Integer getIndirizzoId() {
 		return indirizzoId;
 	}
-	public void setIndirizzoId(int indirizzoId) {
+	public void setIndirizzoId(Integer indirizzoId) {
 		this.indirizzoId = indirizzoId;
 	}
-	public int getEdificioId() {
+	public Integer getEdificioId() {
 		return edificioId;
 	}
-	public void setEdificioId(int edificioId) {
+	public void setEdificioId(Integer edificioId) {
 		this.edificioId = edificioId;
 	}
 	public TipoImmobile getTipoImmobile() {
@@ -121,40 +121,40 @@ public class Annuncio {
 	public void setTipoAnnuncio(TipoAnnuncio tipoAnnuncio) {
 		this.tipoAnnuncio = tipoAnnuncio;
 	}
-	public int getPrezzo() {
+	public Integer getPrezzo() {
 		return prezzo;
 	}
-	public void setPrezzo(int prezzo) {
+	public void setPrezzo(Integer prezzo) {
 		this.prezzo = prezzo;
 	}
-	public int getMq() {
+	public Integer getMq() {
 		return mq;
 	}
-	public void setMq(int mq) {
+	public void setMq(Integer mq) {
 		this.mq = mq;
 	}
-	public int getLocali() {
+	public Integer getLocali() {
 		return locali;
 	}
-	public void setLocali(int locali) {
+	public void setLocali(Integer locali) {
 		this.locali = locali;
 	}
-	public int getBagni() {
+	public Integer getBagni() {
 		return bagni;
 	}
-	public void setBagni(int bagni) {
+	public void setBagni(Integer bagni) {
 		this.bagni = bagni;
 	}
-	public int getTotPiani() {
+	public Integer getTotPiani() {
 		return totPiani;
 	}
-	public void setTotPiani(int totPiani) {
+	public void setTotPiani(Integer totPiani) {
 		this.totPiani = totPiani;
 	}
-	public int getPiano() {
+	public Integer getPiano() {
 		return piano;
 	}
-	public void setPiano(int piano) {
+	public void setPiano(Integer piano) {
 		this.piano = piano;
 	}
 	public boolean isAscensore() {
@@ -163,10 +163,10 @@ public class Annuncio {
 	public void setAscensore(boolean ascensore) {
 		this.ascensore = ascensore;
 	}
-	public int getPostiAuto() {
+	public Integer getPostiAuto() {
 		return postiAuto;
 	}
-	public void setPostiAuto(int postiAuto) {
+	public void setPostiAuto(Integer postiAuto) {
 		this.postiAuto = postiAuto;
 	}
 	public boolean isBalcone() {
@@ -229,10 +229,10 @@ public class Annuncio {
 	public void setPortineria(boolean portineria) {
 		this.portineria = portineria;
 	}
-	public int getAnno_costruzione() {
+	public Integer getAnno_costruzione() {
 		return anno_costruzione;
 	}
-	public void setAnno_costruzione(int anno_costruzione) {
+	public void setAnno_costruzione(Integer anno_costruzione) {
 		this.anno_costruzione = anno_costruzione;
 	}
 	public StatoRogito getStatoRogito() {
@@ -267,8 +267,8 @@ public class Annuncio {
 //	}
 	@Override
 	public String toString() {
-		return "Annuncio [id=" + id + ", venditoriId=" + venditoreId + ", annuncio_multiplo_id=" 
-				+ ", piantinaId=" + piantinaId + ", indirizzoId=" + indirizzoId + ", edificioId=" + edificioId + ", "
+		return "Annuncio [id=" + id + ", venditoreId=" + venditoreId + ", piantinaId=" + piantinaId + ", indirizzoId="
+				+ indirizzoId + ", edificioId=" + edificioId + ", "
 				+ (tipoImmobile != null ? "tipoImmobile=" + tipoImmobile + ", " : "")
 				+ (tipoAnnuncio != null ? "tipoAnnuncio=" + tipoAnnuncio + ", " : "") + "prezzo=" + prezzo + ", mq="
 				+ mq + ", locali=" + locali + ", bagni=" + bagni + ", totPiani=" + totPiani + ", piano=" + piano
@@ -282,9 +282,9 @@ public class Annuncio {
 				+ ", portineria=" + portineria + ", anno_costruzione=" + anno_costruzione + ", "
 				+ (statoRogito != null ? "statoRogito=" + statoRogito + ", " : "") + "visitaGuidata=" + visitaGuidata
 				+ ", " + (descrizioneLunga != null ? "descrizioneLunga=" + descrizioneLunga + ", " : "")
-				+ "virtualTour=" + virtualTour + ", "
-				+ "]";
+				+ "virtualTour=" + virtualTour + "]";
 	}
+	
 	
 
 	

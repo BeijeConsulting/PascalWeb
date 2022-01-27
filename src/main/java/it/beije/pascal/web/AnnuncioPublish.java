@@ -74,6 +74,7 @@ public class AnnuncioPublish extends HttpServlet {
 		
 		//test
 		annuncio.setVenditoriId(2);
+		annuncio.setIndirizzoId(5);
 		System.out.println(annuncio);
 		DomusJPA.insertAnnuncio(annuncio);
 		
