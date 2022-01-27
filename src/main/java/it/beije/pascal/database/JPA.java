@@ -1,0 +1,125 @@
+package it.beije.pascal.database;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+
+import it.beije.pascal.bean.*;
+
+public class JPA {
+	
+	public static Utente login(String email, String password){
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		
+		Query query = entityManager.createQuery("SELECT u FROM Utente as u WHERE  email = '" + email
+				                                                       + "' AND password = '" + password + "'");
+		
+		Utente risultato = null;
+		
+		List<Utente> appoggio = query.getResultList();
+		if(appoggio.size() != 0) {
+			risultato = appoggio.get(0);
+		}
+		
+		entityManager.close();
+		return risultato;
+	}
+	
+	public static boolean inserisciUtente(Utente u) throws Exception {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		
+		Query query = entityManager.createQuery("SELECT u FROM Utente as u");
+		List<Utente> utenti = query.getResultList();
+		
+		boolean esiste = false;
+		for (Utente ut : utenti) {
+			if (ut.getEmail().equals(u.getEmail()))
+				esiste = true;
+		}
+		
+		if (!esiste) {
+			EntityTransaction transaction = entityManager.getTransaction();
+			transaction.begin();
+			entityManager.persist(u);
+			transaction.commit();
+			entityManager.close();
+		}
+		
+		return esiste;
+	}
+	
+	public static void inserisciAnnuncio(Annuncio a) throws Exception {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		entityManager.persist(a);
+		
+		transaction.commit();
+		entityManager.close();
+	}
+	
+	public static void inserisciCommerciale(Commerciale c) throws Exception {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		entityManager.persist(c);
+		
+		transaction.commit();
+		entityManager.close();
+	}
+	
+	public static void inserisciIndirizzo(Indirizzo i) throws Exception {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		entityManager.persist(i);
+		
+		transaction.commit();
+		entityManager.close();
+	}
+	
+	public static void inserisciRicerca(Ricerca r) throws Exception {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		entityManager.persist(r);
+		
+		transaction.commit();
+		entityManager.close();
+	}
+	
+	public static void inserisciFoto(Foto f) throws Exception {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		entityManager.persist(f);
+		
+		transaction.commit();
+		entityManager.close();
+	}
+	
+	public static void inserisciAnnunciSalvati(AnnunciSalvati a) throws Exception {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		entityManager.persist(a);
+		
+		transaction.commit();
+		entityManager.close();
+	}
+
+}
