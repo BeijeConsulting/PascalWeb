@@ -68,12 +68,13 @@ public class AnnuncioPublish extends HttpServlet {
 		annuncio.setVisitaGuidata(request.getAttribute("visita_guidata")!=null && ((String)request.getAttribute("visita_guidata")).equals("on"));
 		annuncio.setVirtualTour(request.getAttribute("virtual_tour")!=null && ((String)request.getAttribute("virtual_tour")).equals("on"));
 		
-		System.out.println(annuncio);
 		//TODO prima devo gestire l'indirizzo
 		// TODO finisci i parametri e carica
+		//TODO venditore id come utente loggato
 		
 		//test
-		annuncio.setVenditoriId(0);
+		annuncio.setVenditoriId(2);
+		System.out.println(annuncio);
 		DomusJPA.insertAnnuncio(annuncio);
 		
 		doGet(request, response);

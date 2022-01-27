@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,8 +38,10 @@ public class Annuncio {
 	@Column(name = "edificio_id")
 	private int edificioId;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_immobile")
 	private TipoImmobile tipoImmobile;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_annuncio")
 	private TipoAnnuncio tipoAnnuncio;
 	private int prezzo;
@@ -63,6 +67,7 @@ public class Annuncio {
 	private boolean piscina;
 	private boolean portineria;
 	private int anno_costruzione;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "stato_rogito")
 	private StatoRogito statoRogito;
 	@Column(name = "visita_guidata")
