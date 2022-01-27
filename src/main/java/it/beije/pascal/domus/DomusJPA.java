@@ -1,8 +1,16 @@
 package it.beije.pascal.domus;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
+
+import it.beije.pascal.domus.enums.TipoAnnuncio;
+import it.beije.pascal.domus.exception.RegistrationException;
+
+import javax.persistence.Query;
+
 
 public class DomusJPA {
 
@@ -16,15 +24,24 @@ public class DomusJPA {
 		return utente;
 	}
 	
-	public void InsertUtente(Utente utente) {
-		EntityManager em = EntityManagerProvider.getEntityManager();
-		EntityTransaction et = em.getTransaction();
-		
-		et.begin();
-		em.persist(utente);
-		et.commit();
-		
-		em.close();
+	public static void insertUtente(Utente utente) throws RegistrationException {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		Query query = entityManager.createQuery("SELECT u FROM Utente as u");
+		List<Utente> utenti = query.getResultList();
+		boolean exist = false;
+		for (Utente u : utenti) {
+			if (u.getEmail().equals(utente.getEmail()))
+				exist = true;
+		}
+		if (!exist) {
+			EntityTransaction transaction = entityManager.getTransaction();
+			transaction.begin();
+			entityManager.persist(utente);
+			transaction.commit();
+			entityManager.close();
+		} else {
+			throw new RegistrationException("Email already in use");
+		}
 	}
 
 	public static Utente login(String email, String password) {
@@ -41,11 +58,24 @@ public class DomusJPA {
 		EntityManager em = EntityManagerProvider.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		
+		
 		et.begin();
 		em.persist(annuncio);
 		et.commit();
 		
 		em.close();
+	}
+	
+	public static void insertIndirizzo(Indirizzo indirizzo) {
+		EntityManager em = EntityManagerProvider.getEntityManager();
+		EntityTransaction et = em.getTransaction();
+		
+		et.begin();
+		em.persist(indirizzo);
+		et.commit();
+		em.close();
+
+		
 	}
 	
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import it.beije.pascal.domus.Annuncio;
 import it.beije.pascal.domus.DomusJPA;
 import it.beije.pascal.domus.Indirizzo;
+import it.beije.pascal.domus.Utente;
 import it.beije.pascal.domus.enums.StatoRogito;
 import it.beije.pascal.domus.enums.TipoAnnuncio;
 import it.beije.pascal.domus.enums.TipoImmobile;
@@ -49,6 +50,9 @@ public class AnnuncioPublish extends HttpServlet {
 		indirizzo.setComune(request.getParameter("comune"));
 		
 		
+		//TODO inserisci indirizzo
+		DomusJPA.insertIndirizzo(indirizzo);
+		
 		Annuncio annuncio = new Annuncio();
 		
 		String tipoImmString= request.getParameter("tipologia_immobile").toUpperCase();
@@ -68,12 +72,17 @@ public class AnnuncioPublish extends HttpServlet {
 		annuncio.setVisitaGuidata(request.getAttribute("visita_guidata")!=null && ((String)request.getAttribute("visita_guidata")).equals("on"));
 		annuncio.setVirtualTour(request.getAttribute("virtual_tour")!=null && ((String)request.getAttribute("virtual_tour")).equals("on"));
 		
-		System.out.println(annuncio);
 		//TODO prima devo gestire l'indirizzo
 		// TODO finisci i parametri e carica
+		//TODO venditore id come utente loggato
 		
 		//test
-		annuncio.setVenditoriId(0);
+		Utente loggedUser = (Utente)request.getSession().getAttribute("logged_user");
+		if(loggedUser.getEmail()==null) throw new RuntimeException("User not logged in");
+		annuncio.setVenditoriId(loggedUser.getId());
+		annuncio.setIndirizzoId(indirizzo.getId());
+		System.out.println(indirizzo);
+		System.out.println(annuncio);
 		DomusJPA.insertAnnuncio(annuncio);
 		
 		doGet(request, response);
