@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -45,6 +47,15 @@ public class Utente {
 	@OneToMany
 	@JoinColumn(name="utente_id", referencedColumnName = "id")
 	private List<Ricerca> ricerche;
+
+	@ManyToMany
+	@JoinTable(
+	  name = "annunci_salvati",
+	  joinColumns = @JoinColumn(name = "utente_id", referencedColumnName = "id"),
+	  inverseJoinColumns = @JoinColumn(name = "annuncio_id", referencedColumnName = "id")
+	)	
+	private List<Annuncio> annunciSalvati;
+
 	
 	public int getCommercialeId() {
 		return commercialeId;
@@ -117,7 +128,14 @@ public class Utente {
 	public void setRicerche(List<Ricerca> ricerche) {
 		this.ricerche = ricerche;
 	}
-	
+
+	public List<Annuncio> getAnnunciSalvati() {
+		return annunciSalvati;
+	}
+
+	public void setAnnunciSalvati(List<Annuncio> annunciSalvati) {
+		this.annunciSalvati = annunciSalvati;
+	}
 
 	@Override
 	public String toString() {
