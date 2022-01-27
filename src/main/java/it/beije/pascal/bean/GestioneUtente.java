@@ -1,4 +1,4 @@
-package it.beije.domus;
+package it.beije.pascal.bean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

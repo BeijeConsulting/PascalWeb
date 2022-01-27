@@ -1,4 +1,4 @@
-package it.beije.domus.enums;
+package it.beije.pascal.bean.enums;
 
 public enum PostiAuto {
 
