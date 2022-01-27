@@ -39,7 +39,7 @@
 				<td><%= contatto.getEmail() %></td>
 				<td><%= contatto.getNote() %></td>
 				<td>
-					<form action="delete" method="get">
+					<form action="../delete" method="get">
 						<input type="hidden" value="<%= contatto.getId()%>" name="id">
 						<input type="submit" value="Elimina">
 					</form></td>

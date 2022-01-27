@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action = "save">
+	<form action = "../save">
 		<label>Nome: <input type = "text" name = "nome"></label>
 		<br>
 		<label>Cognome: <input type = "text" name = "cognome"></label>

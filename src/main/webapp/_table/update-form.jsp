@@ -15,7 +15,7 @@
 	<% int id = Integer.parseInt(request.getParameter("id")); %>
 	<% Contatto contatto = Sql.findById(id); %>
 <body>
-	<form action="update">
+	<form action="../update">
 		<input type = "hidden" name = "id" value = "<%= id %>">
 		<br>
 		<label>Nome: <input type = "text" name = "nome" value = "<%= contatto.getNome() %>"></label>
