@@ -35,7 +35,8 @@ public class Commerciale {
 	@Column(name="p_iva")
 	private String pIva;
 	
-	
+	@Column(name="indirizzo_id")
+	private int indirizzoId;
 	
 	@OneToMany
 	@JoinColumn(name="commerciale_id", referencedColumnName = "id")
@@ -88,16 +89,6 @@ public class Commerciale {
 	public void setPIva(String pIva) {
 		this.pIva = pIva;
 	}
-
-//	public int getIndirizzoId() {
-//		return indirizzoId;
-//	}
-//
-//	public void setIndirizzoId(int indirizzoId) {
-//		this.indirizzoId = indirizzoId;
-//	}
-//	
-	
 	
 	public List<Utente> getUtenti() {
 		return utenti;
@@ -105,6 +96,22 @@ public class Commerciale {
 	
 	public void setUtenti(List<Utente> utenti) {
 		this.utenti = utenti;
+	}
+
+	public String getpIva() {
+		return pIva;
+	}
+
+	public void setpIva(String pIva) {
+		this.pIva = pIva;
+	}
+
+	public int getIndirizzoId() {
+		return indirizzoId;
+	}
+
+	public void setIndirizzoId(int indirizzoId) {
+		this.indirizzoId = indirizzoId;
 	}
 
 	@Override

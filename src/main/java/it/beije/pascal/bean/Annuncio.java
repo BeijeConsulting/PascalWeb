@@ -68,6 +68,9 @@ public class Annuncio {
 	private boolean virtualTour;
 	@Column(name = "create_timestamp")
 	private Timestamp createTimestamp;
+	
+	
+	
 	public int getId() {
 		return id;
 	}
