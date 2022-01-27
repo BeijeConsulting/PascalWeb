@@ -1,27 +1,27 @@
 package it.beije.database;
 
 import java.io.IOException;
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import it.beije.domus.Utente;
+import java.util.List;
 
 /**
- * Servlet implementation class DBservlet
+ * Servlet implementation class Visual
  */
-@WebServlet("/register")
-public class RegisterUser extends HttpServlet {
+@WebServlet("/visual")
+public class Visual extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterUser() {
+    public Visual() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,8 +30,8 @@ public class RegisterUser extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.sendRedirect("login.jsp");
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -39,26 +39,12 @@ public class RegisterUser extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String username = request.getParameter("user_name");
-		String email = request.getParameter("email");
-		String password = request.getParameter("pass_word");
-		System.out.println("user_name : " + username);
-		System.out.println("pass_word : " + password);
-		System.out.println("pass_word : " + email);
-
-		Utente u = new Utente();
+		List<Utente> u = ManagerJPA.getUtenti();
 		
-		u.setEmail(email);
-		u.setUsername(username);
-		u.setPassword(password);
+		HttpSession session = request.getSession();
+		session.setAttribute("lista", u);
 		
-		ManagerJPA.addUser(u);
-		
-		System.out.println(u);
-		System.out.println("utente aggiunto con successo");
-		
-		response.sendRedirect("index.html");
-		
+		response.sendRedirect("visual.jsp");
 	}
 
 }

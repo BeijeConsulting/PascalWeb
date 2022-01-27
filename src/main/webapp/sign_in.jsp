@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Sign In</title>
-<title>Pagina di Registrazione</title>
+<h1>Pagina di Registrazione</h1>
 </head>
 <body>
 

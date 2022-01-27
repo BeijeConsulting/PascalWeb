@@ -106,6 +106,6 @@ public class Utente {
 	@Override
 	public String toString() {
 		return "Utente [id=" + id + ", email=" + email + ", avatar_url=" + avatarUrl + ", password=" + password
-				+ ", spam_check=" + spamCheck + ", amministratore=" + amministratore + ", username" + username + "]";
+				+ ", spam_check=" + spamCheck + ", amministratore=" + amministratore + ", username=" + username + "]";
 	}
 }

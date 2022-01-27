@@ -17,7 +17,7 @@ public class ManagerJPA {
 		
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
 		
-		Query query = entityManager.createQuery("SELECT c FROM Utenti as c");
+		Query query = entityManager.createQuery("SELECT c FROM Utente as c");
 		
 		List<Utente> elenco = query.getResultList();
 		
