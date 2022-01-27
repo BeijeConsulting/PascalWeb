@@ -1,4 +1,4 @@
-package it.beije.pascal.immobiliareenums;
+package it.beije.pascal.immobiliare;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -8,9 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import it.beije.pascal.immobiliare.Utente;
-import it.beije.pascal.immobiliare.Util;
 
 /**
  * Servlet implementation class immobiliareServlet
@@ -60,16 +57,6 @@ public class immobiliareServlet extends HttpServlet {
 				response.sendRedirect("immobiliareHome.jsp");
 			}
 		}
-
-		if (request.getParameter("Registrazione") != null) {
-			System.out.println("Registrazione");
-
-			response.sendRedirect("registrazione.jsp");
-
-			Utente newUtente = new Utente();
-
-		}
-
 		if (request.getParameter("newUtente") != null) {
 			System.out.println("Nuovo Utente");
 			String email = request.getParameter("email");
@@ -86,7 +73,7 @@ public class immobiliareServlet extends HttpServlet {
 
 			util.insertNewUtente(newUtente);			
 			
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("login.html");
 
 		}
 
