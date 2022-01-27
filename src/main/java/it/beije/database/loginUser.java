@@ -29,7 +29,7 @@ public class loginUser extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("login_user.jsp");
 		
 	}
 
