@@ -26,7 +26,7 @@ public class DeleteContattoServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id")); 
 		System.out.println("Valore id: " + id);
 		Sql.delete(id);
-		response.sendRedirect("contatti.jsp");
+		response.sendRedirect("_table/contatti.jsp");
 	}
 
 	

@@ -37,9 +37,9 @@ public class SaveContattoServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String note = request.getParameter("note");
 		Contatto contatto = new Contatto(nome,cognome,telefono,email,note);
-		Sql.update(contatto);		
+		Sql.save(contatto);		
 		
-		response.sendRedirect("contatti.jsp");
+		response.sendRedirect("_table/contatti.jsp");
 		
 	}
 

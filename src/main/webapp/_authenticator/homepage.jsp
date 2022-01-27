@@ -9,6 +9,17 @@
 </head>
 <body>
 	<% Utente utente = (Utente) request.getSession().getAttribute("utente"); %>
+	
+	<%if(utente.getUsername() != null) {%>
+	
 	Benvenuto utente: <%= utente.getUsername() + " " + utente.getPassword() %>
+	
+	<%} else{
+		out.print("Utente non autenticato");
+		
+	}%>
+	
+	
+	
 </body>
 </html>

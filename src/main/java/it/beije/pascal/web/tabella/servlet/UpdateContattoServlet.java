@@ -34,7 +34,7 @@ public class UpdateContattoServlet extends HttpServlet {
 		Contatto contatto = new Contatto(id,cognome,nome,telefono,email,note);
 		Sql.update(contatto);
 		
-		response.sendRedirect("contatti.jsp");	
+		response.sendRedirect("_table/contatti.jsp");	
 		
 	}
 
