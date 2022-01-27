@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="register" method="post">
+<form action="..\register" method="post">
 	  <label for="username">username:</label><br>
 	  <input type="text" name="user_name"><br>
 	  <label for="email">email:</label><br>

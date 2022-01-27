@@ -20,7 +20,7 @@ out.print(u);
 
 <br>
 <br>
-<form action="index.html" method="post">
+<form action="../index.html" method="post">
 
   <input type="submit" value="Torna alla Home"></input>
 

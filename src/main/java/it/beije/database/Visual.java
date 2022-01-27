@@ -44,7 +44,7 @@ public class Visual extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("lista", u);
 		
-		response.sendRedirect("visual.jsp");
+		response.sendRedirect("pages/visual.jsp");
 	}
 
 }
