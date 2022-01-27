@@ -1,4 +1,4 @@
-package it.beije.pascal.web;
+package it.beije.pascal.web.esercizi;
 
 import java.io.IOException;
 import java.util.ArrayList;

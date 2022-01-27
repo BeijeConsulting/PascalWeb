@@ -1,5 +1,6 @@
 package it.beije.pascal.web;
 
+//in questo Bean ci andiamo a mettere i dati e lo salviamo in sessione
 public class User {
 	
 	private String username;

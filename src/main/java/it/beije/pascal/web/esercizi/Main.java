@@ -1,4 +1,4 @@
-package it.beije.pascal.web;
+package it.beije.pascal.web.esercizi;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,8 +25,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import it.beije.pascal.web.Contatto;
 
 public class Main {
 

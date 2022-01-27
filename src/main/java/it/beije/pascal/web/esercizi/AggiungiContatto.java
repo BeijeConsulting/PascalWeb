@@ -1,4 +1,4 @@
-package it.beije.pascal.web;
+package it.beije.pascal.web.esercizi;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,6 +12,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
+import it.beije.pascal.web.esercizi.Contatto;
 
 /**
  * Servlet implementation class AggiungiContatto

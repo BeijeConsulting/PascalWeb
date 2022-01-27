@@ -1,4 +1,4 @@
-package it.beije.pascal.web;
+package it.beije.pascal.web.esercizi;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
