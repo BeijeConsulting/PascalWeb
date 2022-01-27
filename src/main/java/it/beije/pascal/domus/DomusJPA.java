@@ -75,7 +75,6 @@ public class DomusJPA {
 		et.commit();
 		em.close();
 
-		
 	}
 	
 }
