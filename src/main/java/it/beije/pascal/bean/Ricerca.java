@@ -9,18 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import it.beije.domus.enums.AriaCondizionata;
-import it.beije.domus.enums.Arredamento;
-import it.beije.domus.enums.ClasseEnergetica;
-import it.beije.domus.enums.Condizione;
-import it.beije.domus.enums.Giardino;
-import it.beije.domus.enums.PostiAuto;
-import it.beije.domus.enums.Riscaldamento;
-import it.beije.domus.enums.StatoRogito;
-import it.beije.domus.enums.TipoAnnuncio;
-import it.beije.domus.enums.TipoImmobile;
-import it.beije.domus.enums.TipoMappa;
-import it.beije.domus.enums.TipoRicerca;
+import it.beije.pascal.bean.enums.*;
 
 @Entity
 @Table(name = "ricerca")
