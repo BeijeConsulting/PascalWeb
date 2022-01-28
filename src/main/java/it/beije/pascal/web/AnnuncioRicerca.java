@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import it.beije.pascal.domus.Annuncio;
 import it.beije.pascal.domus.GestioneAnnuncio;
@@ -26,14 +27,17 @@ public class AnnuncioRicerca extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String tipoImmobile = request.getParameter("tipoImmobile");
 		String tipoAnnuncio = request.getParameter("tipoAnnuncio");
-		String localita = request.getParameter("localita");
-		List<Annuncio> annunci = GestioneAnnuncio.cercaAnnunci(tipoImmobile, tipoAnnuncio, localita);
+		String comune = request.getParameter("comune");	
+		List<Annuncio> annunci = GestioneAnnuncio.cercaAnnunci(tipoImmobile, tipoAnnuncio, comune);
+		HttpSession session = request.getSession();
+		session.setAttribute("annunci", annunci);
 		for(Annuncio annuncio:annunci) {
 			System.out.println(annuncio);
 		}
 		
+		response.sendRedirect("domus/domus_annunci.jsp");
 		
-		
+
 		
 	}
 

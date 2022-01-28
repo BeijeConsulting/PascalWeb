@@ -45,8 +45,8 @@ Welcome
 			<option>Affitto breve</option>			
 		</select>
 		
-	<label for = "localita">a</label>
-		<select name = "localita">
+	<label for = "comune">a</label>
+		<select name = "comune">
 			<option>Milano</option>		
 			<option>Vercelli</option>	
 			<option>Roma</option>	

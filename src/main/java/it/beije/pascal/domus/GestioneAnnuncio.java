@@ -1,25 +1,56 @@
 package it.beije.pascal.domus;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
 public class GestioneAnnuncio {
-	
-	public static List<Annuncio> cercaAnnunci(String tipoImmobile, String tipoAnnuncio, String localita) {
-		String jpql = "SELECT a,i FROM Annuncio JOIN Indirizzo AS a,i\n"
-				+ "ON annuncio.indirizzo_id = indirizzo.id\n"
-				+ "WHERE tipo_immobile = :tipo_immobile AND tipo_annuncio = :tipo_annuncio AND comune = :comune";
-		System.out.println(jpql);
-		EntityManager entityManager = EntityManagerProvider.getEntityManager();
-		Query query = entityManager.createQuery(jpql);
-		query.setParameter("tipo_immobile", tipoImmobile);
-		query.setParameter("tipo_annuncio", tipoAnnuncio);
-		query.setParameter("localita", localita);
-		List<Annuncio> annunci = query.getResultList();
-		entityManager.close();
+
+	public static List<Annuncio> cercaAnnunci(String tipoImmobile, String tipoAnnuncio, String comune) {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		List<Annuncio> annunci = new ArrayList<Annuncio>();
+
+		String sql = "SELECT annuncio.id,venditore_id,indirizzo_id,tipo_immobile,tipo_annuncio,mq,stato_rogito,visita_guidata,virtual_tour,create_timestamp \n"
+				+ "FROM annuncio JOIN indirizzo \n" + "ON annuncio.indirizzo_id = indirizzo.id \n"
+				+ "WHERE tipo_immobile = ? AND tipo_annuncio = ? AND comune = ?";
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connection = ConnectionManager.getInstance().getConnection();
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, tipoImmobile);
+			statement.setString(2, tipoAnnuncio);
+			statement.setString(3, comune);
+			resultSet = statement.executeQuery();
+
+			while (resultSet.next()) {
+				Annuncio annuncio = new Annuncio();
+				annuncio.setId(resultSet.getInt("id"));
+				annuncio.setVenditoriId(resultSet.getInt("venditore_id"));
+				annuncio.setIndirizzoId(resultSet.getInt("indirizzo_id"));
+				// annuncio.setTipoImmobile(resultSet.getString("tipo_immobile"));
+				// annuncio.setTipoAnnuncio(resultSet.getString("tipo_annuncio"));
+				annuncio.setMq(resultSet.getInt("mq"));
+				// annuncio.setStatoRogito(resultSet.getString("stato_rogito"));
+				annuncio.setVisitaGuidata(resultSet.getBoolean("visita_guidata"));
+				annuncio.setVirtualTour(resultSet.getBoolean("virtual_tour"));
+				annunci.add(annuncio);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+
+		} finally {
+			DBUtil.close(resultSet);
+			DBUtil.close(statement);
+			DBUtil.close(connection);
+		}
 		return annunci;
 	}
-
 }
