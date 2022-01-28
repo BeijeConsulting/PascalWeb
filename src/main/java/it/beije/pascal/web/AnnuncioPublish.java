@@ -14,7 +14,7 @@ import it.beije.pascal.domus.Utente;
 import it.beije.pascal.domus.enums.StatoRogito;
 import it.beije.pascal.domus.enums.TipoAnnuncio;
 import it.beije.pascal.domus.enums.TipoImmobile;
-import it.beije.pascal.web.exception.NotLoggedException;
+//import it.beije.pascal.web.exception.NotLoggedException;
 
 /**
  * Servlet implementation class AnnuncioPublish
