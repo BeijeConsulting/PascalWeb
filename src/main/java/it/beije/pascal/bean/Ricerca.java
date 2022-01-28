@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,12 +24,16 @@ public class Ricerca {
 	@Column(name = "utente_id")
 	private Integer utenteId;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_immobile")
 	private TipoImmobile tipoImmobile;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_annuncio")
 	private TipoAnnuncio tipoAnnuncio;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_ricerca")
 	private TipoRicerca tipoRicerca;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_mappa")
 	private TipoMappa tipoMappa;
 
@@ -57,20 +63,26 @@ public class Ricerca {
 	private int postiAuto;
 	private boolean balcone;
 	private boolean terrazzo;
+	@Enumerated(EnumType.STRING)
 	private Giardino giardino;
+	@Enumerated(EnumType.STRING)
 	private Condizione condizione;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "classe_energetica")
 	private ClasseEnergetica classe_energetica;
-	
+	@Enumerated(EnumType.STRING)
 	private Riscaldamento riscaldamento;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "aria_condizionata")
 	private AriaCondizionata ariaCondizionata;
+	@Enumerated(EnumType.STRING)
 	private Arredamento arredamento;
 	private boolean piscina;
 	private boolean portineria;
 	@Column(name = "anno_costruzione")
 	private int annoCostruzione;
 	@Column(name = "stato_rogito")
+	@Enumerated(EnumType.STRING)
 	private StatoRogito statoRogito;
 	@Column(name = "visita_guidata")
 	private boolean visitaGuidata;

@@ -12,7 +12,7 @@ public class EntityManagerProvider {
 	
 	public static EntityManager getEntityManager() {
 		if (entityManagerFactory == null) {
-			entityManagerFactory = Persistence.createEntityManagerFactory("pascal-rubrica");
+			entityManagerFactory = Persistence.createEntityManagerFactory("pascal-web-domus");
 		}
 		
 		return entityManagerFactory.createEntityManager();

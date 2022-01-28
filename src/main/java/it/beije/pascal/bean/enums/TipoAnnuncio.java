@@ -1,7 +1,5 @@
 package it.beije.pascal.bean.enums;
 
 public enum TipoAnnuncio {
-	VENDITA,
-	AFFITTO,
-	AFFITTO_BREVE
+	vendita,affitto,affitto_breve
 }

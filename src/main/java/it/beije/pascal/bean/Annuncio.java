@@ -4,6 +4,8 @@ package it.beije.pascal.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,10 +22,8 @@ public class Annuncio {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "venditori_id")
-	private Integer venditoriId;
-	@Column(name = "annuncio_multiplo_id")
-	private Integer annuncio_multiplo_id;
+	@Column(name = "venditore_id")
+	private Integer venditoreId;
 	@Column(name = "piantina_id")
 	private Integer piantinaId;
 	@Column(name = "indirizzo_id")
@@ -31,8 +31,10 @@ public class Annuncio {
 	@Column(name = "edificio_id")
 	private Integer edificioId;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_immobile")
 	private TipoImmobile tipoImmobile;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_annuncio")
 	private TipoAnnuncio tipoAnnuncio;
 	private int prezzo;
@@ -47,17 +49,24 @@ public class Annuncio {
 	private int postiAuto;
 	private boolean balcone;
 	private boolean terrazzo;
+	@Enumerated(EnumType.STRING)
 	private Giardino giardino;
+	@Enumerated(EnumType.STRING)
 	private Condizione condizione;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "classe_energetica")
 	private ClasseEnergetica classeEnergetica;
+	@Enumerated(EnumType.STRING)
 	private Riscaldamento riscaldamento;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "aria_condizionata")
 	private AriaCondizionata ariaCondizionata;
+	@Enumerated(EnumType.STRING)
 	private Arredamento arredamento;
 	private boolean piscina;
 	private boolean portineria;
 	private int anno_costruzione;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "stato_rogito")
 	private StatoRogito statoRogito;
 	@Column(name = "visita_guidata")
@@ -78,16 +87,10 @@ public class Annuncio {
 		this.id = id;
 	}
 	public int getVenditoriId() {
-		return venditoriId;
+		return venditoreId;
 	}
 	public void setVenditoriId(int venditoriId) {
-		this.venditoriId = venditoriId;
-	}
-	public int getAnnuncio_multiplo_id() {
-		return annuncio_multiplo_id;
-	}
-	public void setAnnuncio_multiplo_id(int annuncio_multiplo_id) {
-		this.annuncio_multiplo_id = annuncio_multiplo_id;
+		this.venditoreId = venditoriId;
 	}
 	public int getPiantinaId() {
 		return piantinaId;
@@ -263,10 +266,6 @@ public class Annuncio {
 //	public void setCreateTimestamp(Timestamp createTimestamp) {
 //		this.createTimestamp = createTimestamp;
 //	}
-	
-
-	
-	
 	
 	
 }

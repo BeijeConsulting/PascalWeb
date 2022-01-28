@@ -1,5 +1,5 @@
 package it.beije.pascal.bean.enums;
 
 public enum StatoRogito {
-	OCCUPATO,LIBERO,NUDA_PROPRIETA,AFFITTATO
+	occupato,libero,nuda_proprieta,affittato
 }
