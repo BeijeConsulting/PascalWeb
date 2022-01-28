@@ -12,12 +12,12 @@ import it.beije.pascal.database.ManagerJPA;
  * Servlet implementation class loginUser
  */
 @WebServlet("/loginUser")
-public class loginUser extends HttpServlet {
+public class LoginUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginUser() {
+    public LoginUser() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,12 +36,8 @@ public class loginUser extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("pass_word");
-		System.out.println("email : " + email);
-		System.out.println("pass_word : " + password);
-		
+
 		Utente u = ManagerJPA.searchUser(email, password);
-		
-		System.out.println("Hey, questo è quello che hai cercato: "+u);
 		
 		if(u != null) {			
 			request.getSession().setAttribute("loggedUser", u);

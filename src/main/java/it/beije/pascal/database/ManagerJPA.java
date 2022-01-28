@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import it.beije.pascal.bean.Commerciale;
@@ -52,13 +53,17 @@ public class ManagerJPA {
 
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
 
-		Query query = entityManager.createQuery(
-				"SELECT c FROM Utente as c WHERE c.email = '" + email + "'" + " and c.password = '" + psw + "'");
-
-		Utente utente = (Utente) query.getSingleResult();
+		Utente utente;
+		Query query = null;
+		try {
+			query = entityManager.createQuery(
+					"SELECT c FROM Utente as c WHERE c.email = '" + email + "'" + " and c.password = '" + psw + "'");
+			utente = (Utente) query.getSingleResult();
+		} catch (NoResultException e) {
+			utente = null;
+		}
+		
 		entityManager.close();
-
-		System.out.println("Hey, questo è quello che hai cercato: " + utente);
 
 		return utente;
 
