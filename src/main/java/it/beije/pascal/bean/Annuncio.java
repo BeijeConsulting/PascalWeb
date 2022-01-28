@@ -1,6 +1,6 @@
 package it.beije.pascal.bean;
 
-import java.sql.Timestamp;
+//import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
