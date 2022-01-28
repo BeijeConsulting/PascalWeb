@@ -1,6 +1,7 @@
 package it.beije.pascal.bean;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -41,8 +44,18 @@ public class Utente {
 	@Column(name="commerciale_id")
 	private int commercialeId;
 	
-//	@Column(name="create_timestamp")
-//	private Timestamp timeStamp;
+	@OneToMany
+	@JoinColumn(name="utente_id", referencedColumnName = "id")
+	private List<Ricerca> ricerche;
+
+	@ManyToMany
+	@JoinTable(
+	  name = "annunci_salvati",
+	  joinColumns = @JoinColumn(name = "utente_id", referencedColumnName = "id"),
+	  inverseJoinColumns = @JoinColumn(name = "annuncio_id", referencedColumnName = "id")
+	)	
+	private List<Annuncio> annunciSalvati;
+
 	
 	public int getCommercialeId() {
 		return commercialeId;
@@ -107,19 +120,28 @@ public class Utente {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
-//	public Timestamp getTimeStamp() {
-//		return timeStamp;
-//	}
-//
-//	public void setTimeStamp(Timestamp timeStamp) {
-//		this.timeStamp = timeStamp;
-//	}
 
-	
+	public List<Ricerca> getRicerche() {
+		return ricerche;
+	}
+
+	public void setRicerche(List<Ricerca> ricerche) {
+		this.ricerche = ricerche;
+	}
+
+	public List<Annuncio> getAnnunciSalvati() {
+		return annunciSalvati;
+	}
+
+	public void setAnnunciSalvati(List<Annuncio> annunciSalvati) {
+		this.annunciSalvati = annunciSalvati;
+	}
+
 	@Override
 	public String toString() {
 		return "Utente [id=" + id + ", email=" + email + ", avatar_url=" + avatarUrl + ", password=" + password
 				+ ", spam_check=" + spamCheck + ", amministratore=" + amministratore + ", username" + username + "]";
 	}
+
+	
 }

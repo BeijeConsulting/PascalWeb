@@ -3,6 +3,7 @@ package it.beije.pascal.database;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 public class EntityManagerProvider {
 	
 	private EntityManagerProvider() {}
@@ -17,3 +18,6 @@ public class EntityManagerProvider {
 		return entityManagerFactory.createEntityManager();
 	}
 }
+
+
+
