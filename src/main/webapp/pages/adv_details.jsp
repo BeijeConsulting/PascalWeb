@@ -8,17 +8,14 @@
 </head>
 <body>
 
+<h1>Dettagli annuncio</h1>
+
 <div>
-<jsp:useBean id="loggedUser" class="it.beije.pascal.bean.Utente" scope="session"></jsp:useBean>
-<jsp:setProperty property="username" name="loggedUser" param="user_name"/>
-<jsp:setProperty property="password" name="loggedUser" param="pass_word"/>
-USERNAME = <jsp:getProperty property="username" name="loggedUser"/><br>
-PASSWORD = <jsp:getProperty property="password" name="loggedUser"/><br>
-<!--ID_COMMERCIALE = <jsp:getProperty property="commercialeId" name="loggedUser"/><br>  -------- IT SEEMS BUGGED -->
-EMAIL = <jsp:getProperty property="email" name="loggedUser"/><br>
-AVATAR_URL = <jsp:getProperty property="avatarUrl" name="loggedUser"/><br>
-SPAM CHECK = <input type="checkbox" checked="checked"><br>
-AMMINISTRATORE = <input type="checkbox"><br>
+<jsp:useBean id="adv" class="it.beije.pascal.bean.Annuncio" scope="session"></jsp:useBean>
+TIPO IMMOBILE = <jsp:getProperty property="tipoImmobile" name="adv"/><br>
+PREZZO = <jsp:getProperty property="prezzo" name="adv"/><br>
+METRI QUADRATI = <jsp:getProperty property="mq" name="adv"/><br>
+ANNO DI COSTRUZIONE = <jsp:getProperty property="anno_costruzione" name="adv"/><br>
 </div>
 
 </body>
