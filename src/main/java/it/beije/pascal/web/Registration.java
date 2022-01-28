@@ -43,9 +43,7 @@ public class Registration extends HttpServlet {
 			DomusJPA.insertUtente(utente);
 		} catch (RegistrationException e) {
 			request.getSession().setAttribute("error", e.getMessage());
-		}
-		
+		}		
 		response.sendRedirect("domus_login.html");
 	}
-
 }

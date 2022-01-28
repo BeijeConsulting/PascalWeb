@@ -10,6 +10,34 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+
+body {
+	font-family: 'Arial';
+	background-color: pink;
+}
+
+table {
+
+}
+tbody:nth-child(odd) {
+  background-color: #ff33cc;
+}
+
+tbody:nth-child(even) {
+  background-color: #e495e4;
+}
+
+tbody tr {
+}
+
+table {
+  background-color: #ff33cc;
+}
+
+
+
+</style>
 </head>
 <body align = "center">
 
@@ -34,8 +62,7 @@ Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged
 <br><br>
 <form action = "ricerca" method = "get">
 	<label for = "tipoImmobile">Cerco</label>
-		<select name = "tipoImmobile" onchange="javascript:handleSelect(this)">
-			<option>Qualsiasi</option>	
+		<select name = "tipoImmobile" onchange="javascript:handleSelect(this)">			
 			<option>Casa</option>		
 			<option>Nuova costruzione</option>
 			<option>Immobile o attività commerciale</option>				
@@ -65,7 +92,7 @@ Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged
 </form>
 <%List<Annuncio> annunci = GestioneAnnuncio.findAll(); %>
 <h1>Annunci</h1>
-<table border = 2 align = "center" >
+<table border = 1 align = "center" >
 
 		<thead>
 			<tr>

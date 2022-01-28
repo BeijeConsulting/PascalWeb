@@ -18,7 +18,7 @@ import it.beije.pascal.domus.enums.TipoImmobile;
 /**
  * Servlet implementation class AnnuncioPublish
  */
-@WebServlet("/domus/add_annuncio")
+@WebServlet("/add_annuncio")
 public class AnnuncioPublish extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -84,6 +84,7 @@ public class AnnuncioPublish extends HttpServlet {
 		System.out.println(indirizzo);
 		System.out.println(annuncio);
 		DomusJPA.insertAnnuncio(annuncio);
+		response.sendRedirect("domus_home.jsp");
 		
 		
 	}
