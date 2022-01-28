@@ -11,6 +11,7 @@ import it.beije.pascal.bean.Annuncio;
 import it.beije.pascal.bean.Commerciale;
 import it.beije.pascal.bean.Indirizzo;
 import it.beije.pascal.bean.Utente;
+import it.beije.pascal.bean.enums.TipoImmobile;
 
 public class ManagerJPA {
 
@@ -95,6 +96,24 @@ public class ManagerJPA {
 
 	}
 	
-	
+	public static Annuncio searchAdvertisement(TipoImmobile tipoImmobile) {
+
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+
+		Annuncio annuncio;
+		Query query = null;
+		try {
+			query = entityManager.createQuery(
+					"SELECT a FROM Annuncio as a WHERE tipo_immobile = '" + tipoImmobile + "'");
+			annuncio = (Annuncio) query.getSingleResult();
+		} catch (NoResultException e) {
+			annuncio = null;
+		}
+		
+		entityManager.close();
+
+		return annuncio;
+
+	}
 
 }

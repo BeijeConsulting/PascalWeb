@@ -8,8 +8,6 @@
 </head>
 <body>
 
-<h1 style="color:brown">Benvenuto nella tua pagina</h1>
-
 <div>
 <jsp:useBean id="loggedUser" class="it.beije.pascal.bean.Utente" scope="session"></jsp:useBean>
 <jsp:setProperty property="username" name="loggedUser" param="user_name"/>

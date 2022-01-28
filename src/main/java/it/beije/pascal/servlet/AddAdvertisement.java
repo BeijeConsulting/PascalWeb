@@ -62,7 +62,7 @@ public class AddAdvertisement extends HttpServlet {
 		ManagerJPA.addAdvertisement(annuncio);
 		
 		System.out.println("Annuncio aggiunto");
-		response.sendRedirect("pages/personal_page.jsp");
+		response.sendRedirect("pages/personal_page_admin.jsp");
 	}
 
 }
