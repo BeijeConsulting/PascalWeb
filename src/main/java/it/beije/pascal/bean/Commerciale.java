@@ -36,11 +36,11 @@ public class Commerciale {
 	private String pIva;
 	
 	@Column(name="indirizzo_id")
-	private int indirizzoId;
+	private Integer indirizzoId;
 	
-	@OneToMany
-	@JoinColumn(name="commerciale_id", referencedColumnName = "id")
-	private List<Utente> utenti;
+//	@OneToMany
+//	@JoinColumn(name="commerciale_id", referencedColumnName = "id")
+//	private List<Utente> utenti;
 
 	public int getId() {
 		return id;
@@ -90,13 +90,13 @@ public class Commerciale {
 		this.pIva = pIva;
 	}
 	
-	public List<Utente> getUtenti() {
-		return utenti;
-	}
-	
-	public void setUtenti(List<Utente> utenti) {
-		this.utenti = utenti;
-	}
+//	public List<Utente> getUtenti() {
+//		return utenti;
+//	}
+//	
+//	public void setUtenti(List<Utente> utenti) {
+//		this.utenti = utenti;
+//	}
 
 	public String getpIva() {
 		return pIva;

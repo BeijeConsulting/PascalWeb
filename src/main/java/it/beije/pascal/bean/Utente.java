@@ -42,19 +42,19 @@ public class Utente {
 	private String username;
 	
 	@Column(name="commerciale_id")
-	private int commercialeId;
+	private Integer commercialeId;
 	
-	@OneToMany
-	@JoinColumn(name="utente_id", referencedColumnName = "id")
-	private List<Ricerca> ricerche;
-
-	@ManyToMany
-	@JoinTable(
-	  name = "annunci_salvati",
-	  joinColumns = @JoinColumn(name = "utente_id", referencedColumnName = "id"),
-	  inverseJoinColumns = @JoinColumn(name = "annuncio_id", referencedColumnName = "id")
-	)	
-	private List<Annuncio> annunciSalvati;
+//	@OneToMany
+//	@JoinColumn(name="utente_id", referencedColumnName = "id")
+//	private List<Ricerca> ricerche;
+//
+//	@ManyToMany
+//	@JoinTable(
+//	  name = "annunci_salvati",
+//	  joinColumns = @JoinColumn(name = "utente_id", referencedColumnName = "id"),
+//	  inverseJoinColumns = @JoinColumn(name = "annuncio_id", referencedColumnName = "id")
+//	)	
+//	private List<Annuncio> annunciSalvati;
 
 	
 	public int getCommercialeId() {
@@ -121,21 +121,21 @@ public class Utente {
 		this.username = username;
 	}
 
-	public List<Ricerca> getRicerche() {
-		return ricerche;
-	}
-
-	public void setRicerche(List<Ricerca> ricerche) {
-		this.ricerche = ricerche;
-	}
-
-	public List<Annuncio> getAnnunciSalvati() {
-		return annunciSalvati;
-	}
-
-	public void setAnnunciSalvati(List<Annuncio> annunciSalvati) {
-		this.annunciSalvati = annunciSalvati;
-	}
+//	public List<Ricerca> getRicerche() {
+//		return ricerche;
+//	}
+//
+//	public void setRicerche(List<Ricerca> ricerche) {
+//		this.ricerche = ricerche;
+//	}
+//
+//	public List<Annuncio> getAnnunciSalvati() {
+//		return annunciSalvati;
+//	}
+//
+//	public void setAnnunciSalvati(List<Annuncio> annunciSalvati) {
+//		this.annunciSalvati = annunciSalvati;
+//	}
 
 	@Override
 	public String toString() {

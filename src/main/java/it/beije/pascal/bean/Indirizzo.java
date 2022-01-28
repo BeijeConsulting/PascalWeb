@@ -26,13 +26,13 @@ public class Indirizzo {
 	@Column(name = "n_civico")
 	private int nCivico;
 	
-	@OneToMany
-	@JoinColumn(name="indirizzo_id", referencedColumnName = "id")
-	private List<Commerciale> commerciali;
-	
-	@OneToMany
-	@JoinColumn(name="indirizzo_id", referencedColumnName = "id")
-	private List<Annuncio> annunci;
+//	@OneToMany
+//	@JoinColumn(name="indirizzo_id", referencedColumnName = "id")
+//	private List<Commerciale> commerciali;
+//	
+//	@OneToMany
+//	@JoinColumn(name="indirizzo_id", referencedColumnName = "id")
+//	private List<Annuncio> annunci;
 
 	public int getId() {
 		return id;
@@ -74,21 +74,21 @@ public class Indirizzo {
 		this.nCivico = nCivico;
 	}
 
-	public List<Commerciale> getCommerciali() {
-		return commerciali;
-	}
-
-	public void setCommerciali(List<Commerciale> commerciali) {
-		this.commerciali = commerciali;
-	}
-
-	public List<Annuncio> getAnnunci() {
-		return annunci;
-	}
-
-	public void setAnnunci(List<Annuncio> annunci) {
-		this.annunci = annunci;
-	}
+//	public List<Commerciale> getCommerciali() {
+//		return commerciali;
+//	}
+//
+//	public void setCommerciali(List<Commerciale> commerciali) {
+//		this.commerciali = commerciali;
+//	}
+//
+//	public List<Annuncio> getAnnunci() {
+//		return annunci;
+//	}
+//
+//	public void setAnnunci(List<Annuncio> annunci) {
+//		this.annunci = annunci;
+//	}
 	
 
 }

@@ -21,15 +21,15 @@ public class Annuncio {
 	private int id;
 	
 	@Column(name = "venditori_id")
-	private int venditoriId;
+	private Integer venditoriId;
 	@Column(name = "annuncio_multiplo_id")
-	private int annuncio_multiplo_id;
+	private Integer annuncio_multiplo_id;
 	@Column(name = "piantina_id")
-	private int piantinaId;
+	private Integer piantinaId;
 	@Column(name = "indirizzo_id")
-	private int indirizzoId;
+	private Integer indirizzoId;
 	@Column(name = "edificio_id")
-	private int edificioId;
+	private Integer edificioId;
 	
 	@Column(name = "tipo_immobile")
 	private TipoImmobile tipoImmobile;
@@ -66,8 +66,8 @@ public class Annuncio {
 	private String descrizioneLunga;
 	@Column(name = "virtual_tour")
 	private boolean virtualTour;
-	@Column(name = "create_timestamp")
-	private Timestamp createTimestamp;
+//	@Column(name = "create_timestamp")
+//	private Timestamp createTimestamp;
 	
 	
 	
@@ -257,12 +257,12 @@ public class Annuncio {
 	public void setVirtualTour(boolean virtualTour) {
 		this.virtualTour = virtualTour;
 	}
-	public Timestamp getCreateTimestamp() {
-		return createTimestamp;
-	}
-	public void setCreateTimestamp(Timestamp createTimestamp) {
-		this.createTimestamp = createTimestamp;
-	}
+//	public Timestamp getCreateTimestamp() {
+//		return createTimestamp;
+//	}
+//	public void setCreateTimestamp(Timestamp createTimestamp) {
+//		this.createTimestamp = createTimestamp;
+//	}
 	
 
 	

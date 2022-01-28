@@ -14,10 +14,10 @@ import javax.persistence.Table;
 public class AnnunciSalvati {
 	@Id
 	@Column(name = "annuncio_id")
-	private int annuncioid;
+	private Integer annuncioid;
 	
 	@Column(name = "utente_id")
-	private int utenteid;
+	private Integer utenteid;
 	
 	private String commento;
 	

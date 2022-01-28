@@ -12,7 +12,7 @@ public class Foto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private int annuncio_id;
+	private Integer annuncio_id;
 	private String url;
 	
 	

@@ -20,7 +20,7 @@ public class Ricerca {
 	private int id;
 	
 	@Column(name = "utente_id")
-	private int utenteId;
+	private Integer utenteId;
 	
 	@Column(name = "tipo_immobile")
 	private TipoImmobile tipoImmobile;
