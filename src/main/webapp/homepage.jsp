@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
+<!--
+<%@ //page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -69,11 +71,11 @@ border-radius: 5px;
 <body>
 
 <% 
-	String nome = (String) session.getAttribute("username");
-	String pass = (String) session.getAttribute("password");
+	//String nome = (String) session.getAttribute("username");
+	//String pass = (String) session.getAttribute("password");
 %>
 <div>
-<h1>Ciao <%= nome != null ? nome : "caro utente" %>, benvenuto nella tua rubrica!</h1>
+<h1>Ciao <%= //nome != null ? nome : "caro utente" %>, benvenuto nella tua rubrica!</h1>
 <h2>Qui puoi lavorare con il database</h2>
 
 <form action="contatti" method="get">
@@ -106,6 +108,47 @@ border-radius: 5px;
 
 <br />
 <a href="file.html">Vuoi leggere qualcosa da file?</a>
+
+-->
+
+<%@page import="it.beije.pascal.web.User"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>HOMEPAGE</title>
+</head>
+<body>
+
+<%--
+User user = (User) session.getAttribute("loggedUser");
+
+if (user != null) {
+%>
+BENTORNATO <%= user.getUsername() %>
+<%
+} else {
+	out.print("UTENTE NON AUTENTICATO!!");
+}
+--%>
+
+<jsp:useBean id="loggedUser" class="it.beije.pascal.web.User" scope="session"></jsp:useBean>
+<%--
+User user = (User) session.getAttribute("loggedUser");
+if (user == null) {
+	user = new User();
+	session.setAttribute("loggedUser", user);
+}
+--%>
+
+<% if (loggedUser.getUsername() != null) { %>
+BENTORNATO <jsp:getProperty property="username" name="loggedUser"/>
+<% } else {
+	out.print("UTENTE NON AUTENTICATO!!");
+	}
+%>
 
 </body>
 </html>
