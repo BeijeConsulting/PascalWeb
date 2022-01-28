@@ -5,8 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
-<h1>Pagina di Login Utente</h1>
 </head>
+<h1>Pagina di Login Utente</h1>
 <body>
 
 <%
