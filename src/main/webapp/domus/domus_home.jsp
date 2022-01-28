@@ -58,6 +58,34 @@ Welcome
 		</select>
 	<input type = "submit" value = "cerca">
 </form>
+<%List<Annuncio> annunci =(List<Annuncio>) session.getAttribute("annunci"); %>
+<table border = 2 align = "center" >
+
+		<thead>
+			<tr>
+				<th>Venditore id</th>
+				<th>Mq</th>
+				<th>Prezzo</th>
+				<th>Visita guidata</th>
+				<th>Virtual tour</th>			
+				
+			</tr>
+		</thead>
+
+		<tbody>
+			<% for (Annuncio annuncio : annunci) {	%>
+			<tr>
+				<td><%= annuncio.getVenditoriId() %></td>
+				<td><%= annuncio.getMq() %></td>
+				<td><%= annuncio.getPrezzo() %></td>
+				<td><%= annuncio.isVisitaGuidata() %></td>
+				<td><%= annuncio.isVirtualTour() %></td>
+				
+			</tr>
+			<% } %>
+
+		</tbody>
+</table>
 
 <a href="crea_annuncio.jsp">Crea nuovo annuncio</a>
 
