@@ -27,8 +27,8 @@ public class JPA {
 		return risultato;
 	}
 	
-	public static List<Annuncio> cercaAnnunci(String tipoImmobile, String tipoAnnuncio, int prezzo, int mq, int locali, int bagni, int totPiani, int piano, boolean ascensore, int postiAuto, boolean balcone, boolean terrazzo, String giardino, String condizione, String classeEnergetica, String riscaldamento, String ariaCondizionata, String arredamento, 
-			                                   boolean piscina, boolean portineria, int /*?*/ annoCostruzione, String statoRogito, boolean visitaGuidata, String descrizione, boolean virtualTour){
+	public static List<Annuncio> cercaAnnunci(String tipoImmobile, String tipoAnnuncio, Integer prezzo, Integer mq, Integer locali, Integer bagni, Integer totPiani, Integer piano, Boolean ascensore, Integer postiAuto, Boolean balcone, Boolean terrazzo, String giardino, String condizione, String classeEnergetica, String riscaldamento, String ariaCondizionata, String arredamento, 
+			                                   Boolean piscina, Boolean portineria, Integer  annoCostruzione, String statoRogito, Boolean visitaGuidata, String descrizione, Boolean virtualTour){
 		
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
 		
