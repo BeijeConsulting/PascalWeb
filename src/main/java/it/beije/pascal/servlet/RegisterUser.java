@@ -54,6 +54,7 @@ public class RegisterUser extends HttpServlet {
 		u.setEmail(email);
 		u.setUsername(username);
 		u.setPassword(password);
+		u.setAmministratore(true);
 //		u.setCommercialeId(0);
 		
 		ManagerJPA.addUser(u);

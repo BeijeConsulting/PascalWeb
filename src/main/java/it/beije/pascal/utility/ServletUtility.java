@@ -31,10 +31,10 @@ public class ServletUtility {
 	public static Annuncio createAdvertisement(HttpServletRequest request, int indirizzoId) {
 		
 		Annuncio annuncio = new Annuncio();
-		String ti = request.getParameter("tipoImmobile").toUpperCase();
+		String ti = request.getParameter("tipoImmobile");
 		TipoImmobile tipoImmobile = TipoImmobile.valueOf(ti);
 
-		String ta = request.getParameter("tipoAnnuncio").toUpperCase();
+		String ta = request.getParameter("tipoAnnuncio");
 		TipoAnnuncio tipoAnnuncio = TipoAnnuncio.valueOf(ta);
 
 		int prezzo = Integer.parseInt(request.getParameter("prezzo"));
@@ -57,22 +57,22 @@ public class ServletUtility {
 
 		boolean terrazzo = Boolean.parseBoolean(request.getParameter("terrazzo"));
 
-		String g = request.getParameter("giardino").toUpperCase();
+		String g = request.getParameter("giardino");
 		Giardino giardino = Giardino.valueOf(g);
 
-		String c = request.getParameter("condizione").toUpperCase();
+		String c = request.getParameter("condizione");
 		Condizione condizione = Condizione.valueOf(c);
 
-		String ce = request.getParameter("classeEnergetica").toUpperCase();
+		String ce = request.getParameter("classeEnergetica");
 		ClasseEnergetica classeEnergetica = ClasseEnergetica.valueOf(ce);
 
-		String r = request.getParameter("riscaldamento").toUpperCase();
+		String r = request.getParameter("riscaldamento");
 		Riscaldamento riscaldamento = Riscaldamento.valueOf(r);
 
-		String ac = request.getParameter("ariaCondizionata").toUpperCase();
+		String ac = request.getParameter("ariaCondizionata");
 		AriaCondizionata ariaCondizionata = AriaCondizionata.valueOf(ac);
 
-		String ar = request.getParameter("arredamento").toUpperCase();
+		String ar = request.getParameter("arredamento");
 		Arredamento arredamento = Arredamento.valueOf(ar);
 
 		boolean piscina = Boolean.parseBoolean(request.getParameter("piscina"));
@@ -81,7 +81,7 @@ public class ServletUtility {
 
 		short annoCostruzione = Short.parseShort(request.getParameter("annoCostruzione"));
 
-		String sr = request.getParameter("statoRogito").toUpperCase();
+		String sr = request.getParameter("statoRogito");
 		StatoRogito statoRogito = StatoRogito.valueOf(sr);
 
 		boolean visitaGuidata = Boolean.parseBoolean(request.getParameter("visitaGuidata"));
@@ -90,6 +90,10 @@ public class ServletUtility {
 
 		boolean virtualTour = Boolean.parseBoolean(request.getParameter("virtualTour"));
 
+		
+		//DA SISTEMARE------------------------------------	
+		annuncio.setVenditoriId(1);
+		//------------------------------------------------
 		
 		annuncio.setIndirizzoId(indirizzoId);
 		annuncio.setTipoImmobile(tipoImmobile);

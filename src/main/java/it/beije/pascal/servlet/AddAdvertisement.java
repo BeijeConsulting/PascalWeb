@@ -55,8 +55,8 @@ public class AddAdvertisement extends HttpServlet {
 			throws ServletException, IOException {
 
 		Indirizzo indirizzo = ServletUtility.createAddress(request);
-		int indirizzoId = indirizzo.getId();
 		ManagerJPA.addAddress(indirizzo);
+		int indirizzoId = indirizzo.getId();
 
 		Annuncio annuncio = ServletUtility.createAdvertisement(request, indirizzoId);
 		ManagerJPA.addAdvertisement(annuncio);

@@ -1,3 +1,4 @@
+
 <%@page import="it.beije.pascal.bean.enums.StatoRogito"%>
 <%@page import="it.beije.pascal.bean.enums.Arredamento"%>
 <%@page import="it.beije.pascal.bean.enums.AriaCondizionata"%>
