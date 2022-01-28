@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConnectionManager {
 	private static final String URL = "jdbc:mysql://localhost:3306/domus?serverTimezone=CET";
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "admin";
+	private static final String PASSWORD = "Chinetti";
 	
 	private static ConnectionManager instance;
 

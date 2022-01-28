@@ -11,7 +11,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-
 public class GestioneAnnuncio {
 
 	public static List<Annuncio> cercaAnnunci(String tipoImmobile, String tipoAnnuncio, String comune) {
@@ -58,57 +57,71 @@ public class GestioneAnnuncio {
 		}
 		return annunci;
 	}
-	
+
 	public static List<Annuncio> findAll() {
 		String jpql = "SELECT a FROM Annuncio AS a";
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
 		Query query = entityManager.createQuery(jpql);
 		List<Annuncio> annunci = query.getResultList();
 		entityManager.close();
-		return annunci;	
-		
+		return annunci;
+
 	}
-	
+
 	public static void delete(int id) {
 		EntityManager entityManger = EntityManagerProvider.getEntityManager();
 		EntityTransaction transaction = entityManger.getTransaction();
-		transaction.begin();		
+		transaction.begin();
 		// JPQL
 		String jpql = "SELECT a FROM Annuncio AS a WHERE id = :id";
 		Query query = entityManger.createQuery(jpql);
-		query.setParameter("id", id);		
-		//Contatto contatto = (Contatto) query.getResultList().get(0);
-		Annuncio annuncio = (Annuncio)query.getSingleResult();		
+		query.setParameter("id", id);
+		// Contatto contatto = (Contatto) query.getResultList().get(0);
+		Annuncio annuncio = (Annuncio) query.getSingleResult();
 		entityManger.remove(annuncio);
 		transaction.commit();
 		entityManger.close();
-		
+
 	}
+
+	public static Indirizzo getIndirizzo(int id) {
+		EntityManager entityManger = EntityManagerProvider.getEntityManager();
+		Indirizzo ind = entityManger.find(Indirizzo.class, id);
+		entityManger.close();
+		return ind;
+	}
+
+	public static Annuncio getAnnuncio(int id) {
+		EntityManager entityManger = EntityManagerProvider.getEntityManager();
+		Annuncio and = entityManger.find(Annuncio.class, id);
+		entityManger.close();
+		return and;
+	}
+
+	public static void salvaAnnuncio(AnnunciSalvati annuncioSalvato) {
+		EntityManager entityManger = EntityManagerProvider.getEntityManager();
+		EntityTransaction transaction = entityManger.getTransaction();
+		transaction.begin();
+		entityManger.persist(annuncioSalvato);
+		transaction.commit();
+		entityManger.close();
+
+	}
+
+	public static List<Annuncio> getAnnunciSalvati(int utenteId) {
+		System.out.println("dsnjadnajdnsaindsaknjdsaindasj    " + utenteId);
+		EntityManager entityManger = EntityManagerProvider.getEntityManager();
+		// JPQL
+		
+		//FIXME 
+		String jpql = "select a from Annuncio as a where a.id in (select s.annuncioId from AnnunciSalvati as s where s.utenteid = :utenteId)";
+		Query query = entityManger.createQuery(jpql);
+		query.setParameter("utenteId", utenteId);
+		// Contatto contatto = (Contatto) query.getResultList().get(0);
+		List<Annuncio> annunciSalvati = (List<Annuncio>) query.getResultList();
+		entityManger.close();
+		
+		return annunciSalvati;
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

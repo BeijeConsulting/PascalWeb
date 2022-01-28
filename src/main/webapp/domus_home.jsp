@@ -103,8 +103,8 @@ Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged
 				<th>Virtual tour</th>			
 				<%if(((Utente)session.getAttribute("logged_user")).isAmministratore() == true  ){%>
 				<th>Delete</th>
-				
 				<% } %>
+				<th>Visualizza</th>	
 			</tr>
 		</thead>
 
@@ -125,6 +125,13 @@ Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged
 				</td>
 				
 				<% } %>
+				<td>
+					<form action = "visualizza" method = "get">
+						<input type = "hidden" value = "<%= annuncio.getId() %>" name = "idAnnuncio">
+						<input type = "hidden" value = "<%= annuncio.getIndirizzoId() %>" name = "idIndirizzo">
+						<input type = "submit" value = "Visualizza">
+					</form>
+				</td>
 						
 			</tr>
 			<% } %>
@@ -134,6 +141,10 @@ Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged
 <br>
 <%if(((Utente)session.getAttribute("logged_user")).getEmail()!= null ){%>
 <a href="crea_annuncio.jsp">Crea nuovo annuncio</a>
+<form action = "visualizzaAnnunciSalvati" method = "get">
+	<input type = "hidden" value = "<%= logged_user.getId() %>" name = "id">
+	<input type = "submit" value = "Annunci Salvati">
+</form>
 <% } %>
 
 </body>

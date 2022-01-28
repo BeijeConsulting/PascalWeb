@@ -26,6 +26,7 @@ import it.beije.pascal.domus.enums.TipoImmobile;
 public class Annuncio {
 
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	

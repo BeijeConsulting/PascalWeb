@@ -11,20 +11,21 @@ import javax.persistence.Table;
 public class AnnunciSalvati {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	@Column(name = "annuncio_id")
+	private int annuncioId;
 	@Column(name = "utente_id")
 	private int utenteid;
 	private String commento;
-	
-	@Column(name = "avatar_url")
-	private String avatarurl;
+
 
 	public int getId() {
-		return id;
+		return annuncioId;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.annuncioId = id;
 	}
 
 	public int getUtenteid() {
@@ -43,14 +44,15 @@ public class AnnunciSalvati {
 		this.commento = commento;
 	}
 
-	public String getAvatarurl() {
-		return avatarurl;
+	public AnnunciSalvati(int annuncioId, int utenteid, String commento) {
+		super();
+		this.annuncioId = annuncioId;
+		this.utenteid = utenteid;
+		this.commento = commento;
 	}
 
-	public void setAvatarurl(String avatarurl) {
-		this.avatarurl = avatarurl;
-	}
-	
+
+
 
 	
 	
