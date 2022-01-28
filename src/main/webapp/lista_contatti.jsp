@@ -19,9 +19,9 @@ body {
 
 div {
 	border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin: 10px;
+  	background-color: #f2f2f2;
+  	padding: 20px;
+  	margin: 10px;
 }
 input[type=submit] {
 	background-color: tomato;
@@ -30,6 +30,7 @@ input[type=submit] {
 	padding: 10px;
 	font-size: 15px;
 	border-radius: 4px;
+	margin: 5px;
 }
 input[type=submit]:hover {
 	cursor: pointer;
@@ -44,7 +45,7 @@ button {
 	margin: 15px;
 }
 a {
-color: white;
+	color: white;
 }
 </style>
 
@@ -55,23 +56,25 @@ color: white;
 	<a href="homepage.jsp">Home</a>
 </button>
 
-
 <% for(Contatto c : contatti) { %>
 	<div>
-		<h1>
-			<%= c.getNome() %> <%= c.getCognome() %>
-		</h1>
-		<p>
-			numero di telefono: <%= c.getTelefono() %>, email: <%= c.getEmail() %> <br /> note: <%= c.getNote() %>
-		</p>
+		<h1><%= c.getNome() %> <%= c.getCognome() %></h1>
+		<p>numero di telefono: <%= c.getTelefono() %>, email: <%= c.getEmail() %> <br /> note: <%= c.getNote() %></p>
 		
 		<form action="elimina" method="post">
 			<input type="hidden" name="Id" value="<%=c.getId()%>" />
 			<input type="submit" value="Elimina contatto" />
 		</form>
+		
+		<form action="modifica" method="get">
+			<input type="hidden" name="nome" value="<%= c.getNome() %>" />
+			<input type="hidden" name="cognome" value="<%= c.getCognome() %>" />
+			<input type="hidden" name="tel" value="<%= c.getTelefono() %>" />
+			<input type="hidden" name="email" value="<%= c.getEmail() %>" />
+			<input type="hidden" name="note" value="<%= c.getNote() %>" />
+			<input type="submit" value="Modifica contatto" />
+		</form>
 	</div>
-	<% } %>
-	
-	
+	<% } %>	
 </body>
 </html>
