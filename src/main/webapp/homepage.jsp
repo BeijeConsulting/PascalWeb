@@ -1,7 +1,5 @@
 
 <!--
-<%@ //page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,13 +67,9 @@ border-radius: 5px;
 </style>
 </head>
 <body>
-
-<% 
 	//String nome = (String) session.getAttribute("username");
 	//String pass = (String) session.getAttribute("password");
-%>
 <div>
-<h1>Ciao <%= //nome != null ? nome : "caro utente" %>, benvenuto nella tua rubrica!</h1>
 <h2>Qui puoi lavorare con il database</h2>
 
 <form action="contatti" method="get">
