@@ -5,26 +5,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "annunci_salvati")
 public class AnnunciSalvati {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	@Column(name = "annuncio_id")
+	private int annuncioid;
+	
 	@Column(name = "utente_id")
 	private int utenteid;
+	
 	private String commento;
 	
 	@Column(name = "avatar_url")
 	private String avatarurl;
+	
 
-	public int getId() {
-		return id;
+	public int getAnnuncioid() {
+		return annuncioid;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setAnnuncioid(int annuncioid) {
+		this.annuncioid = annuncioid;
 	}
 
 	public int getUtenteid() {

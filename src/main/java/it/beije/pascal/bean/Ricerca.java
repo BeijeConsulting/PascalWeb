@@ -18,6 +18,7 @@ public class Ricerca {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name = "utente_id")
 	private int utenteId;
 	

@@ -9,6 +9,14 @@
 		<class>it.beije.pascal.bean.Ricerca</class>
 		<class>it.beije.pascal.bean.Utente</class>
 		
+		<class>it.beije.pascal.bean.Annuncio</class>
+		<class>it.beije.pascal.bean.AnnunciSalvati</class>
+		<class>it.beije.pascal.bean.Commerciale</class>
+		<class>it.beije.pascal.bean.Foto</class>
+		<class>it.beije.pascal.bean.Indirizzo</class>
+		<class>it.beije.pascal.bean.Ricerca</class>
+		<class>it.beije.pascal.bean.Utente</class>
+		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		
 		<properties>
