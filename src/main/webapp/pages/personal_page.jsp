@@ -23,5 +23,13 @@ SPAM CHECK = <input type="checkbox" checked="checked"><br>
 AMMINISTRATORE = <input type="checkbox"><br>
 </div>
 
+<br><br>
+
+<div>
+<form action="../getads" method="post">
+<input type="submit" value="Vedi annunci">
+</form>
+
+</div>
 </body>
 </html>
