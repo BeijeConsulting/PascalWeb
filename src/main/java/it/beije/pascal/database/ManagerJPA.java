@@ -7,7 +7,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+import it.beije.pascal.bean.Annuncio;
 import it.beije.pascal.bean.Commerciale;
+import it.beije.pascal.bean.Indirizzo;
 import it.beije.pascal.bean.Utente;
 
 public class ManagerJPA {
@@ -28,7 +30,6 @@ public class ManagerJPA {
 	public static void addUser(Utente u) {
 
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
-
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
 		entityManager.persist(u);
@@ -40,7 +41,6 @@ public class ManagerJPA {
 	public static void addcommercial(Commerciale c) {
 
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
-
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
 		entityManager.persist(c);
@@ -52,7 +52,6 @@ public class ManagerJPA {
 	public static Utente searchUser(String email, String psw) {
 
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
-
 		Utente utente;
 		Query query = null;
 		try {
@@ -64,9 +63,31 @@ public class ManagerJPA {
 		}
 		
 		entityManager.close();
-
 		return utente;
 
+	}
+	
+	public static List<Annuncio> getAds(){
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		List<Annuncio> listann = new ArrayList<>();
+		Query query= null;
+		try {
+			query = entityManager.createQuery("Select a from Annuncio as a");
+			listann = query.getResultList();
+			
+		}catch(Exception e) {
+			System.out.println("Annuncio soos");
+		}
+		
+		entityManager.close();
+		return listann;
+	}
+	
+	public static Indirizzo getAddress(int id) {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		Indirizzo address = entityManager.find(Indirizzo.class, id);
+		return address;
+		
 	}
 
 }

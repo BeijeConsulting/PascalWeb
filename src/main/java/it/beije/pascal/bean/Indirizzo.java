@@ -15,6 +15,8 @@ import javax.persistence.Table;
 @Table(name = "indirizzo")
 public class Indirizzo {
 	
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -90,5 +92,10 @@ public class Indirizzo {
 //		this.annunci = annunci;
 //	}
 	
+	
+	@Override
+	public String toString() {
+		return  indirizzo  +  ", " + nCivico + ", " + comune + ", " + cap ;
+	}
 
 }

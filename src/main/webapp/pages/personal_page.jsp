@@ -29,6 +29,7 @@ AMMINISTRATORE = <input type="checkbox"><br>
 <form action="../addAdvertisement" method="get">
 <input type="submit" value="inserisci annuncio">
 </form>
+
 </div>
 
 </body>
