@@ -10,8 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Annunci Salvati</h1>
-<%List<Annuncio> annunci = GestioneAnnuncio.findAll(); %>
+<h1 align="center">Annunci Salvati</h1>
+<%List<Annuncio> annunci = (List<Annuncio>) session.getAttribute("listAnnunci"); %>
 <table border = 1 align = "center" >
 		<thead>
 			<tr>
