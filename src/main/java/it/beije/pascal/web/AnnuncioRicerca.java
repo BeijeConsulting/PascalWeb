@@ -35,16 +35,12 @@ public class AnnuncioRicerca extends HttpServlet {
 			System.out.println(annuncio);
 		}
 		
-		response.sendRedirect("domus/domus_annunci.jsp");
+		response.sendRedirect("domus_annunci.jsp");
 		
 
 		
 	}
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+
 
 }

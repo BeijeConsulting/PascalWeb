@@ -1,3 +1,6 @@
+<%@page import="it.beije.pascal.domus.Annuncio"%>
+<%@page import="it.beije.pascal.domus.GestioneAnnuncio"%>
+<%@page import="java.util.List"%>
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@page import="it.beije.pascal.domus.Utente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -8,25 +11,27 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body align = "center">
 
 <jsp:useBean id="logged_user" class="it.beije.pascal.domus.Utente" scope="session"></jsp:useBean>
 <br>
 <%if(((Utente)session.getAttribute("logged_user")).getEmail()!= null ){%>
-<jsp:setProperty property="email" name="logged_user" param="email_logged"/>
-Welcome 
+Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged"/>
+ 
 <jsp:getProperty property="email" name="logged_user"/>
 <form action="logout" method="post">
 <input type="submit" value="Logout">
 </form>
 <br>
-<a href="crea_annuncio.jsp">Crea nuovo annuncio</a>
+
 
 <%}else {%>
 <a href="domus_login.html">Login</a>  
 <a href="domus_registration.jsp">Registrazione</a>
+
 <%} %>
 
+<br><br>
 <form action = "ricerca" method = "get">
 	<label for = "tipoImmobile">Cerco</label>
 		<select name = "tipoImmobile" onchange="javascript:handleSelect(this)">
@@ -58,7 +63,8 @@ Welcome
 		</select>
 	<input type = "submit" value = "cerca">
 </form>
-<%List<Annuncio> annunci =(List<Annuncio>) session.getAttribute("annunci"); %>
+<%List<Annuncio> annunci = GestioneAnnuncio.findAll(); %>
+<h1>Annunci</h1>
 <table border = 2 align = "center" >
 
 		<thead>
@@ -68,7 +74,10 @@ Welcome
 				<th>Prezzo</th>
 				<th>Visita guidata</th>
 				<th>Virtual tour</th>			
+				<%if(((Utente)session.getAttribute("logged_user")).isAmministratore() == true  ){%>
+				<th>Delete</th>
 				
+				<% } %>
 			</tr>
 		</thead>
 
@@ -79,15 +88,26 @@ Welcome
 				<td><%= annuncio.getMq() %></td>
 				<td><%= annuncio.getPrezzo() %></td>
 				<td><%= annuncio.isVisitaGuidata() %></td>
-				<td><%= annuncio.isVirtualTour() %></td>
+				<td><%= annuncio.isVirtualTour() %></td>	
+				<%if(((Utente)session.getAttribute("logged_user")).isAmministratore() == true  ){%>
+				<td>
+					<form action = "delete" method = "get">
+						<input type = "hidden" value = "<%= annuncio.getId() %>" name = "id">
+						<input type = "submit" value = "elimina">
+					</form>
+				</td>
 				
+				<% } %>
+						
 			</tr>
 			<% } %>
 
 		</tbody>
 </table>
-
+<br>
+<%if(((Utente)session.getAttribute("logged_user")).getEmail()!= null ){%>
 <a href="crea_annuncio.jsp">Crea nuovo annuncio</a>
+<% } %>
 
 </body>
 </html>

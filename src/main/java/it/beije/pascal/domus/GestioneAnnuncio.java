@@ -7,6 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+
+
 public class GestioneAnnuncio {
 
 	public static List<Annuncio> cercaAnnunci(String tipoImmobile, String tipoAnnuncio, String comune) {
@@ -53,4 +58,57 @@ public class GestioneAnnuncio {
 		}
 		return annunci;
 	}
+	
+	public static List<Annuncio> findAll() {
+		String jpql = "SELECT a FROM Annuncio AS a";
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		Query query = entityManager.createQuery(jpql);
+		List<Annuncio> annunci = query.getResultList();
+		entityManager.close();
+		return annunci;	
+		
+	}
+	
+	public static void delete(int id) {
+		EntityManager entityManger = EntityManagerProvider.getEntityManager();
+		EntityTransaction transaction = entityManger.getTransaction();
+		transaction.begin();		
+		// JPQL
+		String jpql = "SELECT a FROM Annuncio AS a WHERE id = :id";
+		Query query = entityManger.createQuery(jpql);
+		query.setParameter("id", id);		
+		//Contatto contatto = (Contatto) query.getResultList().get(0);
+		Annuncio annuncio = (Annuncio)query.getSingleResult();		
+		entityManger.remove(annuncio);
+		transaction.commit();
+		entityManger.close();
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

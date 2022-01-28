@@ -85,7 +85,7 @@ public class AnnuncioPublish extends HttpServlet {
 		System.out.println(annuncio);
 		DomusJPA.insertAnnuncio(annuncio);
 		
-		doGet(request, response);
+		
 	}
 
 }
