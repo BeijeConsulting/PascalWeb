@@ -27,6 +27,42 @@ public class JPA {
 		return risultato;
 	}
 	
+	public static List<Annuncio> cercaAnnunci(String tipoImmobile, String tipoAnnuncio, int prezzo, int mq, int locali, int bagni, int totPiani, int piano, boolean ascensore, int postiAuto, boolean balcone, boolean terrazzo, String giardino, String condizione, String classeEnergetica, String riscaldamento, String ariaCondizionata, String arredamento, 
+			                                   boolean piscina, boolean portineria, int /*?*/ annoCostruzione, String statoRogito, boolean visitaGuidata, String descrizione, boolean virtualTour){
+		
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		
+		Query query = entityManager.createQuery("SELECT a FROM Annuncio as a WHERE  tipo_immbile = '" + tipoImmobile
+				                                                       + "' AND tipo_annuncio = '" + tipoAnnuncio 
+				                                                       + "' AND prezzo = '" + prezzo 
+				                                                       + "' AND mq = '" + mq 
+				                                                       + "' AND locali = '" + locali 
+				                                                       + "' AND bagni = '" + bagni 
+				                                                       + "' AND tot_piani = '" + totPiani
+				                                                       + "' AND piano = '" + piano
+				                                                       + "' AND ascensore = '" + ascensore
+				                                                       + "' AND posti_auto = '" + postiAuto
+				                                                       + "' AND balcone = '" + balcone
+				                                                       + "' AND terrazzo = '" + terrazzo
+				                                                       + "' AND giardino = '" + giardino
+				                                                       + "' AND condizione = '" + condizione
+				                                                       + "' AND classe_energetica = '" + classeEnergetica
+				                                                       + "' AND riscaldamento = '" + riscaldamento
+				                                                       + "' AND aria_condizionata = '" + ariaCondizionata
+				                                                       + "' AND arredamento = '" + arredamento
+				                                                       + "' AND piscina = '" + piscina
+				                                                       + "' AND portineria = '" + portineria
+				                                                       + "' AND anno_costruzione = '" + annoCostruzione
+				                                                       + "' AND stato_rogito = '" + statoRogito
+				                                                       + "' AND visita_guidata = '" + visitaGuidata
+				                                                       + "' AND descrizione_lunga = '" + descrizione
+				                                                       + "' AND virtual_tour = '" + virtualTour + "'");
+		
+		List<Annuncio> annunci = query.getResultList();;
+		
+		return annunci;
+	}
+	
 	public static boolean inserisciUtente(Utente u) throws Exception {
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
 		
