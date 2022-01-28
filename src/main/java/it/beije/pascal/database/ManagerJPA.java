@@ -7,7 +7,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+import it.beije.pascal.bean.Annuncio;
 import it.beije.pascal.bean.Commerciale;
+import it.beije.pascal.bean.Indirizzo;
 import it.beije.pascal.bean.Utente;
 
 public class ManagerJPA {
@@ -48,6 +50,30 @@ public class ManagerJPA {
 		entityManager.close();
 
 	}
+	
+	public static void addAddress(Indirizzo i) {
+
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		entityManager.persist(i);
+		transaction.commit();
+		entityManager.close();
+
+	}
+	
+	public static void addAdvertisement(Annuncio a) {
+
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		entityManager.persist(a);
+		transaction.commit();
+		entityManager.close();
+
+	}
 
 	public static Utente searchUser(String email, String psw) {
 
@@ -68,5 +94,7 @@ public class ManagerJPA {
 		return utente;
 
 	}
+	
+	
 
 }

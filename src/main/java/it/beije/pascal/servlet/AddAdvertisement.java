@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.beije.pascal.bean.enums.TipoImmobile;
+import it.beije.pascal.database.ManagerJPA;
 import it.beije.pascal.utility.ServletUtility;
 import it.beije.pascal.bean.Annuncio;
 import it.beije.pascal.bean.Indirizzo;
@@ -54,10 +55,14 @@ public class AddAdvertisement extends HttpServlet {
 			throws ServletException, IOException {
 
 		Indirizzo indirizzo = ServletUtility.createAddress(request);
+		int indirizzoId = indirizzo.getId();
+		ManagerJPA.addAddress(indirizzo);
 
-		Annuncio annuncio = ServletUtility.createAdvertisement(request);
-
-		doGet(request, response);
+		Annuncio annuncio = ServletUtility.createAdvertisement(request, indirizzoId);
+		ManagerJPA.addAdvertisement(annuncio);
+		
+		System.out.println("Annuncio aggiunto");
+		response.sendRedirect("pages/personal_page.jsp");
 	}
 
 }

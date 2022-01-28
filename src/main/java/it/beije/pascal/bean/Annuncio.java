@@ -19,10 +19,8 @@ public class Annuncio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "venditori_id")
-	private int venditoriId;
-	@Column(name = "annuncio_multiplo_id")
-	private int annuncio_multiplo_id;
+	@Column(name = "venditore_id")
+	private int venditoreId;
 	@Column(name = "piantina_id")
 	private int piantinaId;
 	@Column(name = "indirizzo_id")
@@ -74,22 +72,6 @@ public class Annuncio {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getVenditoriId() {
-		return venditoriId;
-	}
-
-	public void setVenditoriId(int venditoriId) {
-		this.venditoriId = venditoriId;
-	}
-
-	public int getAnnuncio_multiplo_id() {
-		return annuncio_multiplo_id;
-	}
-
-	public void setAnnuncio_multiplo_id(int annuncio_multiplo_id) {
-		this.annuncio_multiplo_id = annuncio_multiplo_id;
 	}
 
 	public int getPiantinaId() {
@@ -326,32 +308,18 @@ public class Annuncio {
 
 	@Override
 	public String toString() {
-		return "Annuncio [id=" + id + ", venditoriId=" + venditoriId + ", annuncio_multiplo_id=" + annuncio_multiplo_id
-				+ ", piantinaId=" + piantinaId + ", indirizzoId=" + indirizzoId + ", edificioId=" + edificioId
-				+ ", tipoImmobile=" + tipoImmobile + ", tipoAnnuncio=" + tipoAnnuncio + ", prezzo=" + prezzo + ", mq="
-				+ mq + ", locali=" + locali + ", bagni=" + bagni + ", totPiani=" + totPiani + ", piano=" + piano
-				+ ", ascensore=" + ascensore + ", postiAuto=" + postiAuto + ", balcone=" + balcone + ", terrazzo="
-				+ terrazzo + ", giardino=" + giardino + ", condizione=" + condizione + ", classeEnergetica="
-				+ classeEnergetica + ", riscaldamento=" + riscaldamento + ", ariaCondizionata=" + ariaCondizionata
-				+ ", arredamento=" + arredamento + ", piscina=" + piscina + ", portineria=" + portineria
-				+ ", anno_costruzione=" + anno_costruzione + ", statoRogito=" + statoRogito + ", visitaGuidata="
-				+ visitaGuidata + ", descrizioneLunga=" + descrizioneLunga + ", virtualTour=" + virtualTour
-				+ ", createTimestamp=" + createTimestamp + ", getId()=" + getId() + ", getVenditoriId()="
-				+ getVenditoriId() + ", getAnnuncio_multiplo_id()=" + getAnnuncio_multiplo_id() + ", getPiantinaId()="
-				+ getPiantinaId() + ", getIndirizzoId()=" + getIndirizzoId() + ", getEdificioId()=" + getEdificioId()
-				+ ", getTipoImmobile()=" + getTipoImmobile() + ", getTipoAnnuncio()=" + getTipoAnnuncio()
-				+ ", getPrezzo()=" + getPrezzo() + ", getMq()=" + getMq() + ", getLocali()=" + getLocali()
-				+ ", getBagni()=" + getBagni() + ", getTotPiani()=" + getTotPiani() + ", getPiano()=" + getPiano()
-				+ ", isAscensore()=" + isAscensore() + ", getPostiAuto()=" + getPostiAuto() + ", isBalcone()="
-				+ isBalcone() + ", isTerrazzo()=" + isTerrazzo() + ", getGiardino()=" + getGiardino()
-				+ ", getCondizione()=" + getCondizione() + ", getClasseEnergetica()=" + getClasseEnergetica()
-				+ ", getRiscaldamento()=" + getRiscaldamento() + ", getAriaCondizionata()=" + getAriaCondizionata()
-				+ ", getArredamento()=" + getArredamento() + ", isPiscina()=" + isPiscina() + ", isPortineria()="
-				+ isPortineria() + ", getAnno_costruzione()=" + getAnno_costruzione() + ", getStatoRogito()="
-				+ getStatoRogito() + ", isVisitaGuidata()=" + isVisitaGuidata() + ", getDescrizioneLunga()="
-				+ getDescrizioneLunga() + ", isVirtualTour()=" + isVirtualTour() + ", getCreateTimestamp()="
-				+ getCreateTimestamp() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+		return "Annuncio [id=" + id + ", venditoreId=" + venditoreId + ", piantinaId=" + piantinaId + ", indirizzoId="
+				+ indirizzoId + ", edificioId=" + edificioId + ", tipoImmobile=" + tipoImmobile + ", tipoAnnuncio="
+				+ tipoAnnuncio + ", prezzo=" + prezzo + ", mq=" + mq + ", locali=" + locali + ", bagni=" + bagni
+				+ ", totPiani=" + totPiani + ", piano=" + piano + ", ascensore=" + ascensore + ", postiAuto="
+				+ postiAuto + ", balcone=" + balcone + ", terrazzo=" + terrazzo + ", giardino=" + giardino
+				+ ", condizione=" + condizione + ", classeEnergetica=" + classeEnergetica + ", riscaldamento="
+				+ riscaldamento + ", ariaCondizionata=" + ariaCondizionata + ", arredamento=" + arredamento
+				+ ", piscina=" + piscina + ", portineria=" + portineria + ", anno_costruzione=" + anno_costruzione
+				+ ", statoRogito=" + statoRogito + ", visitaGuidata=" + visitaGuidata + ", descrizioneLunga="
+				+ descrizioneLunga + ", virtualTour=" + virtualTour + ", createTimestamp=" + createTimestamp + "]";
 	}
+	
+	
 
 }

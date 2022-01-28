@@ -28,7 +28,7 @@
 	  <select name="tipoImmobile">
 	  <% for(TipoImmobile ti : TipoImmobile.values()){
 		  %>
-		  <option value="ti"><%= ti %></option>
+		  <option value="<%= ti %>"><%= ti %></option>
 	  <% 
 	  }
 	  %>
@@ -40,7 +40,7 @@
 	  <select name="tipoAnnuncio">
 	  <% for(TipoAnnuncio ta : TipoAnnuncio.values()){
 		  %>
-		  <option value="ta"><%= ta %></option>
+		  <option value="<%= ta %>"><%= ta %></option>
 	  <% 
 	  }
 	  %>
@@ -99,7 +99,7 @@
 	  <select name="giardino">
 	  <% for(Giardino g : Giardino.values()){
 		  %>
-		  <option value="g"><%= g %></option>
+		  <option value="<%= g %>"><%= g %></option>
 	  <% 
 	  }
 	  %>
@@ -111,7 +111,7 @@
 	  <select name="condizione">
 	  <% for(Condizione c : Condizione.values()){
 		  %>
-		  <option value="c"><%= c %></option>
+		  <option value="<%= c %>"><%= c %></option>
 	  <% 
 	  }
 	  %>
@@ -123,7 +123,7 @@
 	  <select name="classeEnergetica">
 	  <% for(ClasseEnergetica ce : ClasseEnergetica.values()){
 		  %>
-		  <option value="ce"><%= ce %></option>
+		  <option value="<%= ce %>"><%= ce %></option>
 	  <% 
 	  }
 	  %>
@@ -135,7 +135,7 @@
 	  <select name="riscaldamento">
 	  <% for(Riscaldamento r : Riscaldamento.values()){
 		  %>
-		  <option value="r"><%= r %></option>
+		  <option value="<%= r %>"><%= r %></option>
 	  <% 
 	  }
 	  %>
@@ -147,7 +147,7 @@
 	  <select name="ariaCondizionata">
 	  <% for(AriaCondizionata r : AriaCondizionata.values()){
 		  %>
-		  <option value="r"><%= r %></option>
+		  <option value="<%= r %>"><%= r %></option>
 	  <% 
 	  }
 	  %>
@@ -159,7 +159,7 @@
 	  <select name="arredamento">
 	  <% for(Arredamento r : Arredamento.values()){
 		  %>
-		  <option value="r"><%= r %></option>
+		  <option value="<%= r %>"><%= r %></option>
 	  <% 
 	  }
 	  %>
@@ -180,7 +180,7 @@
 	  <select name="statoRogito">
 	  <% for(StatoRogito r : StatoRogito.values()){
 		  %>
-		  <option value="r"><%= r %></option>
+		  <option value="<%= r %>"><%= r %></option>
 	  <% 
 	  }
 	  %>

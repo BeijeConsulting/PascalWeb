@@ -28,7 +28,7 @@ public class ServletUtility {
 
 	}
 
-	public static Annuncio createAdvertisement(HttpServletRequest request) {
+	public static Annuncio createAdvertisement(HttpServletRequest request, int indirizzoId) {
 		
 		Annuncio annuncio = new Annuncio();
 		String ti = request.getParameter("tipoImmobile").toUpperCase();
@@ -91,6 +91,7 @@ public class ServletUtility {
 		boolean virtualTour = Boolean.parseBoolean(request.getParameter("virtualTour"));
 
 		
+		annuncio.setIndirizzoId(indirizzoId);
 		annuncio.setTipoImmobile(tipoImmobile);
 		annuncio.setTipoAnnuncio(tipoAnnuncio);
 		annuncio.setPrezzo(prezzo);
