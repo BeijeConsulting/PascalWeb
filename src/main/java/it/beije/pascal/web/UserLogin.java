@@ -15,32 +15,19 @@ import it.beije.pascal.domus.Utente;
 import it.beije.pascal.domus.enums.TipoAnnuncio;
 import it.beije.pascal.domus.enums.*;
 
-/**
- * Servlet implementation class UserLogin
- */
-@WebServlet("/domus/domus_login")
+
+@WebServlet("/login")
 public class UserLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserLogin() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String email= request.getParameter("email");
@@ -62,7 +49,7 @@ public class UserLogin extends HttpServlet {
 			System.out.println("inserito in sessione: " + request.getSession().getAttribute("logged_user").toString());
 		}
 		response.sendRedirect("domus_home.jsp");
-		doGet(request, response);
+		
 	}
 	
 	
