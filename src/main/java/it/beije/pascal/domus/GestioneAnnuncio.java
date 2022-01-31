@@ -10,6 +10,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 
 public class GestioneAnnuncio {
 
@@ -108,19 +110,30 @@ public class GestioneAnnuncio {
 	}
 
 	public static List<Annuncio> getAnnunciSalvati(int utenteId) {
-		System.out.println("dsnjadnajdnsaindsaknjdsaindasj    " + utenteId);
 		EntityManager entityManger = EntityManagerProvider.getEntityManager();
-		// JPQL
 
-		// FIXME
 		String jpql = "select a from Annuncio as a where a.id in (select s.annuncioId from AnnunciSalvati as s where s.utenteid = :utenteId)";
 		Query query = entityManger.createQuery(jpql);
 		query.setParameter("utenteId", utenteId); // Contatto contatto = (Contatto)
-		query.getResultList().get(0);
+//		query.getResultList().get(0);
 		List<Annuncio> annunciSalvati = (List<Annuncio>) query.getResultList();
 		entityManger.close();
 
 		return annunciSalvati;
+	}
+
+	public static void removeSalvato(int annuncioId, int utenteId) {
+		EntityManager entityManger = EntityManagerProvider.getEntityManager();
+		EntityTransaction transaction = entityManger.getTransaction();
+		transaction.begin();
+		Query query = entityManger.createQuery("DELETE FROM AnnunciSalvati a where a.utenteid = :utente_id and a.annuncioId = :annuncio_id");
+		query.setParameter("utente_id", utenteId);
+		query.setParameter("annuncio_id", annuncioId);
+
+		System.out.println("DELETE annuncio salvato: " + query.executeUpdate()); 
+		transaction.commit();
+		entityManger.close();
+		
 	}
 
 }

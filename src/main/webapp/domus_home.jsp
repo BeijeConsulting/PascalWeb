@@ -3,6 +3,8 @@
 <%@page import="java.util.List"%>
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@page import="it.beije.pascal.domus.Utente"%>
+<%@page import="it.beije.pascal.domus.enums.TipoImmobile"%>
+<%@page import="it.beije.pascal.domus.enums.TipoAnnuncio"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -133,18 +135,18 @@ Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged
 <form action = "ricerca" method = "get">
 	<label for = "tipoImmobile"><b>Cerco</b></label>
 		<select name = "tipoImmobile" onchange="javascript:handleSelect(this)">			
-			<option>Casa</option>		
-			<option>Nuova costruzione</option>
-			<option>Immobile o attività commerciale</option>				
-			<option>Terreno</option>	
-			<option>Garage o posto auto</option>				
+			<option value ="<%=TipoImmobile.CASA%>">Casa</option>		
+			<option value ="<%=TipoImmobile.NUOVA_COSTRUZIONE%>">Nuova costruzione</option>
+			<option value ="<%=TipoImmobile.COMMERCIALE%>">Immobile o attività commerciale</option>				
+			<option value ="<%=TipoImmobile.TERRENO%>">Terreno</option>	
+			<option value ="<%=TipoImmobile.GARAGE%>">Garage o posto auto</option>				
 		</select>
 		
 	<label for = "tipoAnnuncio"><b>In</b></label>
 		<select name = "tipoAnnuncio">
-			<option>Vendita</option>		
-			<option>Affitto</option>	
-			<option>Affitto breve</option>			
+			<option value ="<%=TipoAnnuncio.VENDITA%>">Vendita</option>		
+			<option value ="<%=TipoAnnuncio.AFFITTO%>">Affitto</option>	
+			<option value ="<%=TipoAnnuncio.AFFITTO_BREVE%>">Affitto breve</option>			
 		</select>
 		
 	<label for = "comune"><b>a</b></label>

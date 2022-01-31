@@ -1,3 +1,4 @@
+<%@page import="it.beije.pascal.domus.Utente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="it.beije.pascal.domus.Annuncio"%>
@@ -24,13 +25,21 @@
 		</thead>
 
 		<tbody>
+			<% if(!annunci.isEmpty()) %>
 			<% for (Annuncio annuncio : annunci) {	%>
 			<tr>
 				<td><%= annuncio.getVenditoriId() %></td>
 				<td><%= annuncio.getMq() %></td>
 				<td><%= annuncio.getPrezzo() %></td>
 				<td><%= annuncio.isVisitaGuidata() %></td>
-				<td><%= annuncio.isVirtualTour() %></td>		
+				<td><%= annuncio.isVirtualTour() %></td>	
+				<td>
+					<form action = "remove_annuncio_salvato" method = "post">
+						<input type = "hidden" value = "<%= annuncio.getId() %>" name = "annuncioId">
+						<input type = "hidden" value = "<%= ((Utente)session.getAttribute("logged_user")).getId() %>" name = "utenteId">
+						<input type = "submit" value = "Rimuovi">
+					</form>
+				</td>	
 			</tr>
 			<% } %>
 
