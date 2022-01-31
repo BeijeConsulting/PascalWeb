@@ -27,7 +27,7 @@ AMMINISTRATORE = <input type="checkbox"><br>
 
 <div>
 <form action="../addAdvertisement" method="get">
-<input type="submit" value="inserisci annuncio">
+<input type="submit" value="Inserisci annuncio">
 </form>
 </div>
 
@@ -35,7 +35,7 @@ AMMINISTRATORE = <input type="checkbox"><br>
 
 <div>
 <form action="../searchAdvertisement" method="get">
-<input type="submit" value="cerca annuncio">
+<input type="submit" value="Cerca annuncio">
 </form>
 </div>
 

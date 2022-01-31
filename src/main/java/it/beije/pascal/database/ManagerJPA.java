@@ -123,12 +123,10 @@ public class ManagerJPA {
 		try {
 			query = entityManager.createQuery("Select a from Annuncio as a");
 			listann = query.getResultList();
-			for(Annuncio a: listann) {
-				System.out.println(a.toString());
-			}
+			
 			
 		}catch(Exception e) {
-			System.out.println("Annuncio soos");
+			System.out.println("Errore lista annunci: getAds()");
 		}
 		
 		entityManager.close();
