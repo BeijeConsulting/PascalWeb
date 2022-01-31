@@ -20,11 +20,8 @@ public class AnnunciSalvati {
 	private Integer utenteid;
 	
 	private String commento;
-	
-	@Column(name = "avatar_url")
-	private String avatarurl;
-	
 
+	
 	public Integer getAnnuncioid() {
 		return annuncioid;
 	}
@@ -48,15 +45,6 @@ public class AnnunciSalvati {
 	public void setCommento(String commento) {
 		this.commento = commento;
 	}
-
-	public String getAvatarurl() {
-		return avatarurl;
-	}
-
-	public void setAvatarurl(String avatarurl) {
-		this.avatarurl = avatarurl;
-	}
-	
 
 	
 	

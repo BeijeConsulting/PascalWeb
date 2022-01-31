@@ -14,12 +14,9 @@
 </head>
 <body>
 <h1>Lista annunci</h1>
- <% List<Annuncio> adlist= (List<Annuncio>) session.getAttribute("list");
-    Indirizzo address = new Indirizzo();
-%>
- 
+<% List<Annuncio> adlist= (List<Annuncio>) session.getAttribute("list");%>
+<% Utente u = (Utente)session.getAttribute("loggedUser");%>
 <% for(Annuncio a : adlist){%>
-<form action = "../getdetails" method="post"> 
 <fieldset>
 <% out.println("Tipo annuncio: " + a.getTipoAnnuncio()); %> <br>
     <%=("Tipo immobile: " + a.getTipoImmobile())  %> <br>
@@ -27,12 +24,24 @@
     <%=(ManagerJPA.getAddress(a.getIndirizzoId()).printAddress()) %> <br>
     <%=("Prezzo: " + a.getPrezzo()) %> <br>
     <%=("Numero di locali: " + a.getLocali()) %>
+    <% if(u.isAmministratore()){ %>
+    <form action = "../delete" method="post">
+    <input type="submit" value = "Cancella Annuncio" style="float: right;">
+    </form>
+    <%} %>
+    <form action = "../addpreferito" method="post">
+    <input name="annuncio" value="<%= a.getId() %>" type="hidden">
+    <input name="utente" value="<%= u.getId() %>" type="hidden">
+    <input type="submit" value = "Aggiungi ai preferiti" style="float: right;">
+    </form>
+    <form action = "../getdetails" method="post"> 
     <input name="annuncio" value="<%= a.getId() %>" type="hidden">
     <input type="submit" value = "Vedi" style="float: right;">
-    </fieldset></form><br><%
+    </form>
+    </fieldset><br><%
     }
 %>
-<% Utente u = (Utente)session.getAttribute("loggedUser");
+<% 
 String s;
 if(u.isAmministratore()){
     s = "personal_page_admin.jsp";

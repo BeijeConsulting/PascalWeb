@@ -6,7 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import it.beije.pascal.bean.AnnunciSalvati;
 import it.beije.pascal.bean.Annuncio;
 import it.beije.pascal.bean.Commerciale;
 import it.beije.pascal.bean.Indirizzo;
@@ -150,6 +152,18 @@ public class ManagerJPA {
 		}
 		entityManager.close();
 		return annuncio;
+	}
+	
+	public static void addPref(AnnunciSalvati a) {
+
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		entityManager.persist(a);
+		transaction.commit();
+		entityManager.close();
+
 	}
 
 }
