@@ -91,31 +91,7 @@ public class ManagerJPA {
 		return utente;
 
 	}
-	
-<<<<<<< HEAD
-	public static List<Annuncio> getAds(){
-		EntityManager entityManager = EntityManagerProvider.getEntityManager();
-		List<Annuncio> listann = new ArrayList<>();
-		Query query= null;
-		try {
-			query = entityManager.createQuery("Select a from Annuncio as a");
-			listann = query.getResultList();
-			
-		}catch(Exception e) {
-			System.out.println("Annuncio soos");
-		}
-		
-		entityManager.close();
-		return listann;
-	}
-	
-	public static Indirizzo getAddress(int id) {
-		EntityManager entityManager = EntityManagerProvider.getEntityManager();
-		Indirizzo address = entityManager.find(Indirizzo.class, id);
-		return address;
-		
-	}
-=======
+
 	public static Annuncio searchAdvertisement(TipoImmobile tipoImmobile) {
 
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
@@ -166,8 +142,5 @@ public class ManagerJPA {
 		Annuncio annuncio = entityManager.find(Annuncio.class, id);
 		return annuncio;	
 	}
-
-	
->>>>>>> refs/heads/fondamenta-web
 
 }
