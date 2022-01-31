@@ -137,10 +137,19 @@ public class ManagerJPA {
 		return address;	
 	}
 	
-	public static Annuncio getAnnuncio(int id) {
+	public static Annuncio getDetails(int id) {
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
-		Annuncio annuncio = entityManager.find(Annuncio.class, id);
-		return annuncio;	
+		Annuncio annuncio;
+		Query query = null;
+		try {
+			query = entityManager.createQuery(
+					"SELECT a FROM Annuncio as a WHERE Id = '" + id + "'");
+			annuncio = (Annuncio) query.getSingleResult();
+		} catch (NoResultException e) {
+			annuncio = null;
+		}
+		entityManager.close();
+		return annuncio;
 	}
 
 }
