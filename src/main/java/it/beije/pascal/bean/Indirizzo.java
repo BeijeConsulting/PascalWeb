@@ -14,18 +14,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "indirizzo")
 public class Indirizzo {
+	
+
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-
+	
 	private String comune;
 	private String indirizzo;
 	private String cap;
-
+	
 	@Column(name = "n_civico")
 	private int nCivico;
-
+	
 //	@OneToMany
 //	@JoinColumn(name="indirizzo_id", referencedColumnName = "id")
 //	private List<Commerciale> commerciali;
@@ -74,16 +76,6 @@ public class Indirizzo {
 		this.nCivico = nCivico;
 	}
 
-	@Override
-	public String toString() {
-		return "Indirizzo [id=" + id + ", comune=" + comune + ", indirizzo=" + indirizzo + ", cap=" + cap + ", nCivico="
-				+ nCivico + "]";
-	}
-	
-	public String printAddress() {
-		return "Comune: " + comune + ", via: " + indirizzo +  ", cap: " + cap +  ", numero civico: " + nCivico;
-	}
-
 //	public List<Commerciale> getCommerciali() {
 //		return commerciali;
 //	}
@@ -99,5 +91,9 @@ public class Indirizzo {
 //	public void setAnnunci(List<Annuncio> annunci) {
 //		this.annunci = annunci;
 //	}
-
+	
+	public String printAddress() {
+		return "Comune: " + comune + ", via: " + indirizzo +  ", cap: " + cap +  ", numero civico: " + nCivico;
+	}
+	
 }

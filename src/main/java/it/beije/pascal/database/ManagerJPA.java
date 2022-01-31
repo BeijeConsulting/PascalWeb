@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+import it.beije.pascal.bean.AnnunciSalvati;
 import it.beije.pascal.bean.Annuncio;
 import it.beije.pascal.bean.Commerciale;
 import it.beije.pascal.bean.Indirizzo;
@@ -167,6 +168,51 @@ public class ManagerJPA {
 		return annuncio;	
 	}
 
+	public static Annuncio getDetails(int id) {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		Annuncio annuncio;
+		Query query = null;
+		try {
+			query = entityManager.createQuery(
+					"SELECT a FROM Annuncio as a WHERE Id = '" + id + "'");
+			annuncio = (Annuncio) query.getSingleResult();
+		} catch (NoResultException e) {
+			annuncio = null;
+		}
+		entityManager.close();
+		return annuncio;
+	}
 	
+	public static void addPref(AnnunciSalvati a) {
+
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		entityManager.persist(a);
+		transaction.commit();
+		entityManager.close();
+
+	}
+	
+	public static void deleteAd(int annuncioId) {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		Annuncio annuncio;
+		Query query = null;
+		try {
+			query = entityManager.createQuery(
+					"SELECT a FROM Annuncio as a WHERE Id = '" + annuncioId + "'");
+			annuncio = (Annuncio) query.getSingleResult();
+		} catch (NoResultException e) {
+			annuncio = null;
+		}
+		
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		entityManager.remove(annuncio);
+		transaction.commit();
+		entityManager.close();
+		return;
+	}
 
 }

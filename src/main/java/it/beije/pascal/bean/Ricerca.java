@@ -100,11 +100,11 @@ public class Ricerca {
 		this.id = id;
 	}
 
-	public int getUtenteId() {
+	public Integer getUtenteId() {
 		return utenteId;
 	}
 
-	public void setUtenteId(int utenteId) {
+	public void setUtenteId(Integer utenteId) {
 		this.utenteId = utenteId;
 	}
 

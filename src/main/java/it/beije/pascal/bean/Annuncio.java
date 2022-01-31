@@ -13,14 +13,15 @@ import javax.persistence.Table;
 
 import it.beije.pascal.bean.enums.*;
 
+
 @Entity
 @Table(name = "annuncio")
 public class Annuncio {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-
+	
 	@Column(name = "venditore_id")
 	private Integer venditoreId;
 	@Column(name = "piantina_id")
@@ -29,7 +30,7 @@ public class Annuncio {
 	private Integer indirizzoId;
 	@Column(name = "edificio_id")
 	private Integer edificioId;
-
+	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_immobile")
 	private TipoImmobile tipoImmobile;
@@ -76,265 +77,195 @@ public class Annuncio {
 	private boolean virtualTour;
 //	@Column(name = "create_timestamp")
 //	private Timestamp createTimestamp;
-
+	
+	
+	
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public int getVenditoriId() {
+	public Integer getVenditoriId() {
 		return venditoreId;
 	}
-
-	public void setVenditoriId(int venditoriId) {
+	public void setVenditoriId(Integer venditoriId) {
 		this.venditoreId = venditoriId;
 	}
-
-	public int getPiantinaId() {
+	public Integer getPiantinaId() {
 		return piantinaId;
 	}
-
-	public void setPiantinaId(int piantinaId) {
+	public void setPiantinaId(Integer piantinaId) {
 		this.piantinaId = piantinaId;
 	}
-
-	public int getIndirizzoId() {
+	public Integer getIndirizzoId() {
 		return indirizzoId;
 	}
-
-	public void setIndirizzoId(int indirizzoId) {
+	public void setIndirizzoId(Integer indirizzoId) {
 		this.indirizzoId = indirizzoId;
 	}
-
-	public int getEdificioId() {
+	public Integer getEdificioId() {
 		return edificioId;
 	}
-
-	public void setEdificioId(int edificioId) {
+	public void setEdificioId(Integer edificioId) {
 		this.edificioId = edificioId;
 	}
-
 	public TipoImmobile getTipoImmobile() {
 		return tipoImmobile;
 	}
-
 	public void setTipoImmobile(TipoImmobile tipoImmobile) {
 		this.tipoImmobile = tipoImmobile;
 	}
-
 	public TipoAnnuncio getTipoAnnuncio() {
 		return tipoAnnuncio;
 	}
-
 	public void setTipoAnnuncio(TipoAnnuncio tipoAnnuncio) {
 		this.tipoAnnuncio = tipoAnnuncio;
 	}
-
 	public int getPrezzo() {
 		return prezzo;
 	}
-
 	public void setPrezzo(int prezzo) {
 		this.prezzo = prezzo;
 	}
-
 	public int getMq() {
 		return mq;
 	}
-
 	public void setMq(int mq) {
 		this.mq = mq;
 	}
-
 	public int getLocali() {
 		return locali;
 	}
-
 	public void setLocali(int locali) {
 		this.locali = locali;
 	}
-
 	public int getBagni() {
 		return bagni;
 	}
-
 	public void setBagni(int bagni) {
 		this.bagni = bagni;
 	}
-
 	public int getTotPiani() {
 		return totPiani;
 	}
-
 	public void setTotPiani(int totPiani) {
 		this.totPiani = totPiani;
 	}
-
 	public int getPiano() {
 		return piano;
 	}
-
 	public void setPiano(int piano) {
 		this.piano = piano;
 	}
-
 	public boolean isAscensore() {
 		return ascensore;
 	}
-
 	public void setAscensore(boolean ascensore) {
 		this.ascensore = ascensore;
 	}
-
 	public int getPostiAuto() {
 		return postiAuto;
 	}
-
 	public void setPostiAuto(int postiAuto) {
 		this.postiAuto = postiAuto;
 	}
-
 	public boolean isBalcone() {
 		return balcone;
 	}
-
 	public void setBalcone(boolean balcone) {
 		this.balcone = balcone;
 	}
-
 	public boolean isTerrazzo() {
 		return terrazzo;
 	}
-
 	public void setTerrazzo(boolean terrazzo) {
 		this.terrazzo = terrazzo;
 	}
-
 	public Giardino getGiardino() {
 		return giardino;
 	}
-
 	public void setGiardino(Giardino giardino) {
 		this.giardino = giardino;
 	}
-
 	public Condizione getCondizione() {
 		return condizione;
 	}
-
 	public void setCondizione(Condizione condizione) {
 		this.condizione = condizione;
 	}
-
 	public ClasseEnergetica getClasseEnergetica() {
 		return classeEnergetica;
 	}
-
 	public void setClasseEnergetica(ClasseEnergetica classeEnergetica) {
 		this.classeEnergetica = classeEnergetica;
 	}
-
 	public Riscaldamento getRiscaldamento() {
 		return riscaldamento;
 	}
-
 	public void setRiscaldamento(Riscaldamento riscaldamento) {
 		this.riscaldamento = riscaldamento;
 	}
-
 	public AriaCondizionata getAriaCondizionata() {
 		return ariaCondizionata;
 	}
-
 	public void setAriaCondizionata(AriaCondizionata ariaCondizionata) {
 		this.ariaCondizionata = ariaCondizionata;
 	}
-
 	public Arredamento getArredamento() {
 		return arredamento;
 	}
-
 	public void setArredamento(Arredamento arredamento) {
 		this.arredamento = arredamento;
 	}
-
 	public boolean isPiscina() {
 		return piscina;
 	}
-
 	public void setPiscina(boolean piscina) {
 		this.piscina = piscina;
 	}
-
 	public boolean isPortineria() {
 		return portineria;
 	}
-
 	public void setPortineria(boolean portineria) {
 		this.portineria = portineria;
 	}
-
 	public int getAnno_costruzione() {
 		return anno_costruzione;
 	}
-
 	public void setAnno_costruzione(int anno_costruzione) {
 		this.anno_costruzione = anno_costruzione;
 	}
-
 	public StatoRogito getStatoRogito() {
 		return statoRogito;
 	}
-
 	public void setStatoRogito(StatoRogito statoRogito) {
 		this.statoRogito = statoRogito;
 	}
-
 	public boolean isVisitaGuidata() {
 		return visitaGuidata;
 	}
-
 	public void setVisitaGuidata(boolean visitaGuidata) {
 		this.visitaGuidata = visitaGuidata;
 	}
-
 	public String getDescrizioneLunga() {
 		return descrizioneLunga;
 	}
-
 	public void setDescrizioneLunga(String descrizioneLunga) {
 		this.descrizioneLunga = descrizioneLunga;
 	}
-
 	public boolean isVirtualTour() {
 		return virtualTour;
 	}
-
 	public void setVirtualTour(boolean virtualTour) {
 		this.virtualTour = virtualTour;
 	}
-
 //	public Timestamp getCreateTimestamp() {
 //		return createTimestamp;
 //	}
 //	public void setCreateTimestamp(Timestamp createTimestamp) {
 //		this.createTimestamp = createTimestamp;
 //	}
-	@Override
-	public String toString() {
-		return "Annuncio [id=" + id + ", venditoreId=" + venditoreId + ", piantinaId=" + piantinaId + ", indirizzoId="
-				+ indirizzoId + ", edificioId=" + edificioId + ", tipoImmobile=" + tipoImmobile + ", tipoAnnuncio="
-				+ tipoAnnuncio + ", prezzo=" + prezzo + ", mq=" + mq + ", locali=" + locali + ", bagni=" + bagni
-				+ ", totPiani=" + totPiani + ", piano=" + piano + ", ascensore=" + ascensore + ", postiAuto="
-				+ postiAuto + ", balcone=" + balcone + ", terrazzo=" + terrazzo + ", giardino=" + giardino
-				+ ", condizione=" + condizione + ", classeEnergetica=" + classeEnergetica + ", riscaldamento="
-				+ riscaldamento + ", ariaCondizionata=" + ariaCondizionata + ", arredamento=" + arredamento
-				+ ", piscina=" + piscina + ", portineria=" + portineria + ", anno_costruzione=" + anno_costruzione
-				+ ", statoRogito=" + statoRogito + ", visitaGuidata=" + visitaGuidata + ", descrizioneLunga="
-				+ descrizioneLunga + ", virtualTour=" + virtualTour + "]";
-	}
-
+	
+	
 }

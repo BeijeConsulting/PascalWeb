@@ -20,24 +20,21 @@ public class AnnunciSalvati {
 	private Integer utenteid;
 	
 	private String commento;
-	
-	@Column(name = "avatar_url")
-	private String avatarurl;
-	
 
-	public int getAnnuncioid() {
+	
+	public Integer getAnnuncioid() {
 		return annuncioid;
 	}
 
-	public void setAnnuncioid(int annuncioid) {
+	public void setAnnuncioid(Integer annuncioid) {
 		this.annuncioid = annuncioid;
 	}
 
-	public int getUtenteid() {
+	public Integer getUtenteid() {
 		return utenteid;
 	}
 
-	public void setUtenteid(int utenteid) {
+	public void setUtenteid(Integer utenteid) {
 		this.utenteid = utenteid;
 	}
 
@@ -48,15 +45,6 @@ public class AnnunciSalvati {
 	public void setCommento(String commento) {
 		this.commento = commento;
 	}
-
-	public String getAvatarurl() {
-		return avatarurl;
-	}
-
-	public void setAvatarurl(String avatarurl) {
-		this.avatarurl = avatarurl;
-	}
-	
 
 	
 	

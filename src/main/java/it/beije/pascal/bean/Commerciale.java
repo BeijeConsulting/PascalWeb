@@ -18,7 +18,7 @@ public class Commerciale {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private Integer id;
+	private int id;
 	
 	@Column(name="ragione_sociale")
 	private String ragioneSociale;
@@ -42,11 +42,11 @@ public class Commerciale {
 //	@JoinColumn(name="commerciale_id", referencedColumnName = "id")
 //	private List<Utente> utenti;
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -98,12 +98,11 @@ public class Commerciale {
 //		this.utenti = utenti;
 //	}
 
-
-	public int getIndirizzoId() {
+	public Integer getIndirizzoId() {
 		return indirizzoId;
 	}
 
-	public void setIndirizzoId(int indirizzoId) {
+	public void setIndirizzoId(Integer indirizzoId) {
 		this.indirizzoId = indirizzoId;
 	}
 
