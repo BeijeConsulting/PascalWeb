@@ -43,7 +43,8 @@ public class GetAds extends HttpServlet {
 		List<Annuncio> listann = new ArrayList<>();
 		listann = ManagerJPA.getAds();
 		
-		request.getSession().setAttribute("ad_list", listann);
+
+		request.getSession().setAttribute("list", listann);
 		response.sendRedirect("pages/hpage.jsp");
 	}
 

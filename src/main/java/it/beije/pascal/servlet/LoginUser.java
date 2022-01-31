@@ -39,9 +39,17 @@ public class LoginUser extends HttpServlet {
 
 		Utente u = ManagerJPA.searchUser(email, password);
 		
-		if(u != null) {			
-			request.getSession().setAttribute("loggedUser", u);
-			response.sendRedirect("getads");
+
+		if(u != null) {		
+			if(u.isAmministratore()) {
+				request.getSession().setAttribute("loggedUser", u);
+				response.sendRedirect("pages/personal_page_admin.jsp");
+			}
+			else {
+				request.getSession().setAttribute("loggedUser", u);
+				response.sendRedirect("pages/personal_page.jsp");
+			}
+
 			
 		} else {
 			request.getSession().setAttribute("error", "CREDENZIALI ERRATE!!!");

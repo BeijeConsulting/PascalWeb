@@ -14,14 +14,28 @@
 
 
 <body>
- <% List<Annuncio> adlist= (List<Annuncio>) request.getAttribute("ad_list");
+<h1>Lista annunci</h1>
+
+ <% List<Annuncio> adlist= (List<Annuncio>) session.getAttribute("list");
  	Indirizzo address = new Indirizzo();
- %>
-<% for(Annuncio a : adlist){
+%>
+ 
+
+<% for(Annuncio a : adlist){%>
+<form action = "../dettaglio" method="post"> 
+<label name= "annuncio" ><% a.getId(); %></label>
+<%
 	out.println(a.getTipoAnnuncio()+ " " + a.getTipoImmobile() + " " + a.getMq() + ManagerJPA.getAddress(a.getIndirizzoId()).toString());
 	out.println(a.getPrezzo());
 	out.println(a.getLocali());
-	}%>
-}
+	%>
+	</form><br><%
+	}
+
+%>
+
+<form action="../index.html" method="get">
+<input type="submit" value="Home">
+</form>
 </body>
 </html>

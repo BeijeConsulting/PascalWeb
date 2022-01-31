@@ -17,33 +17,33 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "utente")
 public class Utente {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name="email")
+
+	@Column(name = "email")
 	private String email;
-	
-	@Column(name="avatar_url")
+
+	@Column(name = "avatar_url")
 	private String avatarUrl;
-	
-	@Column(name="password")
+
+	@Column(name = "password")
 	private String password;
-	
-	@Column(name="spam_check")
+
+	@Column(name = "spam_check")
 	private boolean spamCheck;
-	
-	@Column(name="amministratore")
+
+	@Column(name = "amministratore")
 	private boolean amministratore;
 
-	@Column(name="username")
+	@Column(name = "username")
 	private String username;
-	
-	@Column(name="commerciale_id")
+
+	@Column(name = "commerciale_id")
 	private Integer commercialeId;
-	
+
 //	@OneToMany
 //	@JoinColumn(name="utente_id", referencedColumnName = "id")
 //	private List<Ricerca> ricerche;
@@ -56,13 +56,26 @@ public class Utente {
 //	)	
 //	private List<Annuncio> annunciSalvati;
 
-	
-	public int getCommercialeId() {
-		return commercialeId;
-	}
+//	public List<Ricerca> getRicerche() {
+//		return ricerche;
+//	}
+//
+//	public void setRicerche(List<Ricerca> ricerche) {
+//		this.ricerche = ricerche;
+//	}
+//
+//	public List<Annuncio> getAnnunciSalvati() {
+//		return annunciSalvati;
+//	}
+//
+//	public void setAnnunciSalvati(List<Annuncio> annunciSalvati) {
+//		this.annunciSalvati = annunciSalvati;
+//	}
 
-	public void setCommercialeId(int commercialeId) {
-		this.commercialeId = commercialeId;
+	@Override
+	public String toString() {
+		return "Utente [id=" + id + ", email=" + email + ", avatar_url=" + avatarUrl + ", password=" + password
+				+ ", spam_check=" + spamCheck + ", amministratore=" + amministratore + ", username" + username + "]";
 	}
 
 	public int getId() {
@@ -112,7 +125,7 @@ public class Utente {
 	public void setAmministratore(boolean amministratore) {
 		this.amministratore = amministratore;
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -121,27 +134,12 @@ public class Utente {
 		this.username = username;
 	}
 
-//	public List<Ricerca> getRicerche() {
-//		return ricerche;
-//	}
-//
-//	public void setRicerche(List<Ricerca> ricerche) {
-//		this.ricerche = ricerche;
-//	}
-//
-//	public List<Annuncio> getAnnunciSalvati() {
-//		return annunciSalvati;
-//	}
-//
-//	public void setAnnunciSalvati(List<Annuncio> annunciSalvati) {
-//		this.annunciSalvati = annunciSalvati;
-//	}
-
-	@Override
-	public String toString() {
-		return "Utente [id=" + id + ", email=" + email + ", avatar_url=" + avatarUrl + ", password=" + password
-				+ ", spam_check=" + spamCheck + ", amministratore=" + amministratore + ", username" + username + "]";
+	public Integer getCommercialeId() {
+		return commercialeId;
 	}
 
-	
+	public void setCommercialeId(Integer commercialeId) {
+		this.commercialeId = commercialeId;
+	}
+
 }
