@@ -99,6 +99,20 @@
 		color: white;
 		text-decoration: none;
 	}
+	.btn-logout {
+		background-color: #11101d;
+		padding: 12px;
+		color: white;
+		border-radius: 5px;
+		font-size: 15px;
+		cursor: pointer;
+		border: none;
+		margin-top: 10px;
+	}
+	.nuovo-annuncio {
+		color: white;
+		text-decoration: none;
+	}
 	
 </style>
 
@@ -106,13 +120,17 @@
 <body align = "center">
 
 <jsp:useBean id="logged_user" class="it.beije.pascal.domus.Utente" scope="session"></jsp:useBean>
-<br>
+<br />
 <%if(((Utente)session.getAttribute("logged_user")).getEmail()!= null ){%>
-Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged"/>
+
+<b><p class="title">Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged"/>
  
 <jsp:getProperty property="email" name="logged_user"/>
+</p></b>
+
+<br />
 <form action="logout" method="post">
-<input type="submit" value="Logout">
+<input class="btn-logout" type="submit" value="Logout">
 </form>
 <br />
 
@@ -215,10 +233,13 @@ Welcome <jsp:setProperty property="email" name="logged_user" param="email_logged
 </div>
 <br>
 <%if(((Utente)session.getAttribute("logged_user")).getEmail()!= null ){%>
-<a href="crea_annuncio.jsp">Crea nuovo annuncio</a>
+<button class="btn-logout">
+	<a class="nuovo-annuncio" href="crea_annuncio.jsp">Crea nuovo annuncio</a>
+</button>
+
 <form action = "visualizzaAnnunciSalvati" method = "get">
 	<input type = "hidden" value = "<%= logged_user.getId() %>" name = "id">
-	<input type = "submit" value = "Annunci Salvati">
+	<input class="btn-logout" type = "submit" value = "Annunci Salvati">
 </form>
 <% } %>
 

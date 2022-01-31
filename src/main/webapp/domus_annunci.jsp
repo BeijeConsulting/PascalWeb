@@ -49,7 +49,7 @@
 		margin-top: 60px;
 	}
 	.btn-home {
-		margin-left: 70px;
+		
 		background-color: #11101d;
 		padding: 12px;
 		color: white;
