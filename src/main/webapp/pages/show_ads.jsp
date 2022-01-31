@@ -19,16 +19,17 @@
 %>
  
 <% for(Annuncio a : adlist){%>
-<form action = "../dettaglio" method="post"> 
-<label name= "annuncio" ><% a.getId(); %></label>
+<form action = "../getdetails" method="post"> 
+<fieldset>
 <% out.println("Tipo annuncio: " + a.getTipoAnnuncio()); %> <br>
     <%=("Tipo immobile: " + a.getTipoImmobile())  %> <br>
     <%=("Metri quadrati: " + a.getMq()) %> <br>
     <%=(ManagerJPA.getAddress(a.getIndirizzoId()).printAddress()) %> <br>
     <%=("Prezzo: " + a.getPrezzo()) %> <br>
     <%=("Numero di locali: " + a.getLocali()) %>
-    
-    </form><br><%
+    <input name="annuncio" value="<%= a.getId() %>" type="hidden">
+    <input type="submit" value = "Vedi" style="float: right;">
+    </fieldset></form><br><%
     }
 %>
 <% Utente u = (Utente)session.getAttribute("loggedUser");
