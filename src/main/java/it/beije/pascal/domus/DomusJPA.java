@@ -76,5 +76,16 @@ public class DomusJPA {
 		em.close();
 
 	}
+
+	public static void saveRicerca(Ricerca ricerca) {
+		EntityManager em = EntityManagerProvider.getEntityManager();
+		EntityTransaction et = em.getTransaction();
+		
+		et.begin();
+		em.persist(ricerca);
+		et.commit();
+		em.close();
+		
+	}
 	
 }

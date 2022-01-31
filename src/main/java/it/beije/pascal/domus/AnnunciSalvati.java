@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "annunci_salvati")
 public class AnnunciSalvati {
@@ -52,6 +53,10 @@ public class AnnunciSalvati {
 	}
 
 
+	
+	public AnnunciSalvati() {
+		super();
+	}
 
 
 	

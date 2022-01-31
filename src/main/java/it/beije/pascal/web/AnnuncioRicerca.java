@@ -12,6 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import it.beije.pascal.domus.Annuncio;
 import it.beije.pascal.domus.GestioneAnnuncio;
+import it.beije.pascal.domus.Ricerca;
+import it.beije.pascal.domus.Utente;
+import it.beije.pascal.domus.enums.TipoAnnuncio;
+import it.beije.pascal.domus.enums.TipoImmobile;
 
 
 @WebServlet("/ricerca")
@@ -28,6 +32,19 @@ public class AnnuncioRicerca extends HttpServlet {
 		String tipoImmobile = request.getParameter("tipoImmobile");
 		String tipoAnnuncio = request.getParameter("tipoAnnuncio");
 		String comune = request.getParameter("comune");	
+		
+		//test
+		System.out.println("RICERCA: " +tipoImmobile + " "+tipoAnnuncio);
+		
+		Utente logged = (Utente)request.getSession().getAttribute("logged_user");
+		
+		Ricerca ricerca = new Ricerca();
+		ricerca.setTipoImmobile(TipoImmobile.valueOf(tipoImmobile));
+		ricerca.setTipoAnnuncio(TipoAnnuncio.valueOf(tipoImmobile));
+		ricerca.setComune(comune);
+		request.getSession().setAttribute("ricerca", ricerca);
+		
+		
 		List<Annuncio> annunci = GestioneAnnuncio.cercaAnnunci(tipoImmobile, tipoAnnuncio, comune);
 		HttpSession session = request.getSession();
 		session.setAttribute("annunci", annunci);

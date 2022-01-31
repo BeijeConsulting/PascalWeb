@@ -10,6 +10,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 
 public class GestioneAnnuncio {
 
@@ -122,6 +124,20 @@ public class GestioneAnnuncio {
 		entityManger.close();
 
 		return annunciSalvati;
+	}
+
+	public static void removeSalvato(int annuncioId, int utenteId) {
+		EntityManager entityManger = EntityManagerProvider.getEntityManager();
+		EntityTransaction transaction = entityManger.getTransaction();
+		transaction.begin();
+		Query query = entityManger.createQuery("DELETE FROM AnnunciSalvati a where a.utenteid = :utente_id and a.annuncioId = :annuncio_id");
+		query.setParameter("utente_id", utenteId);
+		query.setParameter("annuncio_id", annuncioId);
+
+		System.out.println("DELETE annuncio salvato: " + query.executeUpdate()); 
+		transaction.commit();
+		entityManger.close();
+		
 	}
 
 }

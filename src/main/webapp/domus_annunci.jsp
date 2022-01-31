@@ -10,7 +10,11 @@
 </head>
 <body align = "center">
 <%List<Annuncio> annunci =(List<Annuncio>) session.getAttribute("annunci"); %>
-
+	
+	<form action="salva_ricerca">
+	<input type="submit" value="salva ricerca">
+	</form>
+	
 	<h1>Annunci trovati</h1>
 	<table border = 2 align = "center" >
 
