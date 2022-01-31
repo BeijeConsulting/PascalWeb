@@ -40,6 +40,9 @@ public class GetDetails extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("annuncio"));
 		System.out.println(id);
 		Annuncio ann = ManagerJPA.getDetails(id);
+		
+		request.getSession().setAttribute("adv", ann);
+		response.sendRedirect("pages/adv_details.jsp");
 	}
 
 }
