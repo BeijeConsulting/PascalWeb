@@ -6,6 +6,7 @@
 			<class>it.beije.pascal.domus.Annuncio</class>
 			<class>it.beije.pascal.domus.Foto</class>
 			<class>it.beije.pascal.domus.Indirizzo</class>
+			<class>it.beije.pascal.domus.AnnunciSalvati</class>
 			
 			<exclude-unlisted-classes>true</exclude-unlisted-classes>
 			

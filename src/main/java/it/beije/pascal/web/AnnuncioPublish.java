@@ -14,12 +14,11 @@ import it.beije.pascal.domus.Utente;
 import it.beije.pascal.domus.enums.StatoRogito;
 import it.beije.pascal.domus.enums.TipoAnnuncio;
 import it.beije.pascal.domus.enums.TipoImmobile;
-//import it.beije.pascal.web.exception.NotLoggedException;
 
 /**
  * Servlet implementation class AnnuncioPublish
  */
-@WebServlet("/domus/add_annuncio")
+@WebServlet("/add_annuncio")
 public class AnnuncioPublish extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -85,8 +84,9 @@ public class AnnuncioPublish extends HttpServlet {
 		System.out.println(indirizzo);
 		System.out.println(annuncio);
 		DomusJPA.insertAnnuncio(annuncio);
+		response.sendRedirect("domus_home.jsp");
 		
-		doGet(request, response);
+		
 	}
 
 }

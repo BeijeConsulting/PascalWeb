@@ -26,6 +26,7 @@ import it.beije.pascal.domus.enums.TipoImmobile;
 public class Annuncio {
 
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
@@ -51,11 +52,11 @@ public class Annuncio {
 	@Column(name = "tot_piani")
 	private Integer totPiani;
 	private Integer piano;
-	private boolean ascensore;
+	private Boolean ascensore;
 	@Column(name = "posti_auto")
 	private Integer postiAuto;
-	private boolean balcone;
-	private boolean terrazzo;
+	private Boolean balcone;
+	private Boolean terrazzo;
 	private Giardino giardino;
 	private Condizione condizione;
 	@Column(name = "classe_energetica")
@@ -64,18 +65,18 @@ public class Annuncio {
 	@Column(name = "aria_condizionata")
 	private AriaCondizionata ariaCondizionata;
 	private Arredamento arredamento;
-	private boolean piscina;
-	private boolean portineria;
+	private Boolean piscina;
+	private Boolean portineria;
 	private Integer anno_costruzione;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "stato_rogito")
 	private StatoRogito statoRogito;
 	@Column(name = "visita_guidata")
-	private boolean visitaGuidata;
+	private Boolean visitaGuidata;
 	@Column(name = "descrizione_lunga")
 	private String descrizioneLunga;
 	@Column(name = "virtual_tour")
-	private boolean virtualTour;
+	private Boolean virtualTour;
 //	@Column(name = "create_timestamp")
 //	private Timestamp createTimestamp;
 	public Integer getId() {
@@ -157,10 +158,10 @@ public class Annuncio {
 	public void setPiano(Integer piano) {
 		this.piano = piano;
 	}
-	public boolean isAscensore() {
+	public Boolean isAscensore() {
 		return ascensore;
 	}
-	public void setAscensore(boolean ascensore) {
+	public void setAscensore(Boolean ascensore) {
 		this.ascensore = ascensore;
 	}
 	public Integer getPostiAuto() {
@@ -169,16 +170,16 @@ public class Annuncio {
 	public void setPostiAuto(Integer postiAuto) {
 		this.postiAuto = postiAuto;
 	}
-	public boolean isBalcone() {
+	public Boolean isBalcone() {
 		return balcone;
 	}
-	public void setBalcone(boolean balcone) {
+	public void setBalcone(Boolean balcone) {
 		this.balcone = balcone;
 	}
-	public boolean isTerrazzo() {
+	public Boolean isTerrazzo() {
 		return terrazzo;
 	}
-	public void setTerrazzo(boolean terrazzo) {
+	public void setTerrazzo(Boolean terrazzo) {
 		this.terrazzo = terrazzo;
 	}
 	public Giardino getGiardino() {
@@ -217,16 +218,16 @@ public class Annuncio {
 	public void setArredamento(Arredamento arredamento) {
 		this.arredamento = arredamento;
 	}
-	public boolean isPiscina() {
+	public Boolean isPiscina() {
 		return piscina;
 	}
-	public void setPiscina(boolean piscina) {
+	public void setPiscina(Boolean piscina) {
 		this.piscina = piscina;
 	}
-	public boolean isPortineria() {
+	public Boolean isPortineria() {
 		return portineria;
 	}
-	public void setPortineria(boolean portineria) {
+	public void setPortineria(Boolean portineria) {
 		this.portineria = portineria;
 	}
 	public Integer getAnno_costruzione() {
@@ -241,10 +242,10 @@ public class Annuncio {
 	public void setStatoRogito(StatoRogito statoRogito) {
 		this.statoRogito = statoRogito;
 	}
-	public boolean isVisitaGuidata() {
+	public Boolean isVisitaGuidata() {
 		return visitaGuidata;
 	}
-	public void setVisitaGuidata(boolean visitaGuidata) {
+	public void setVisitaGuidata(Boolean visitaGuidata) {
 		this.visitaGuidata = visitaGuidata;
 	}
 	public String getDescrizioneLunga() {
@@ -253,10 +254,10 @@ public class Annuncio {
 	public void setDescrizioneLunga(String descrizioneLunga) {
 		this.descrizioneLunga = descrizioneLunga;
 	}
-	public boolean isVirtualTour() {
+	public Boolean isVirtualTour() {
 		return virtualTour;
 	}
-	public void setVirtualTour(boolean virtualTour) {
+	public void setVirtualTour(Boolean virtualTour) {
 		this.virtualTour = virtualTour;
 	}
 //	public Timestamp getCreateTimestamp() {
