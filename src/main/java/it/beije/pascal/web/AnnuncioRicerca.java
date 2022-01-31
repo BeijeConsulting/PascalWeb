@@ -40,7 +40,7 @@ public class AnnuncioRicerca extends HttpServlet {
 		
 		Ricerca ricerca = new Ricerca();
 		ricerca.setTipoImmobile(TipoImmobile.valueOf(tipoImmobile));
-		ricerca.setTipoAnnuncio(TipoAnnuncio.valueOf(tipoImmobile));
+		ricerca.setTipoAnnuncio(TipoAnnuncio.valueOf(tipoAnnuncio));
 		ricerca.setComune(comune);
 		request.getSession().setAttribute("ricerca", ricerca);
 		
