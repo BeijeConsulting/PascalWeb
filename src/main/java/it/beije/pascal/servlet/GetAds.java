@@ -44,7 +44,7 @@ public class GetAds extends HttpServlet {
 		listann = ManagerJPA.getAds();
 		
 		request.getSession().setAttribute("list", listann);
-		response.sendRedirect("pages/hpage.jsp");
+		response.sendRedirect("pages/show_ads.jsp");
 	}
 
 }

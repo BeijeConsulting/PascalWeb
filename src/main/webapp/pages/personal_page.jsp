@@ -1,3 +1,4 @@
+<%@page import="it.beije.pascal.bean.Utente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -19,8 +20,8 @@ PASSWORD = <jsp:getProperty property="password" name="loggedUser"/><br>
 <!--ID_COMMERCIALE = <jsp:getProperty property="commercialeId" name="loggedUser"/><br>  -------- IT SEEMS BUGGED -->
 EMAIL = <jsp:getProperty property="email" name="loggedUser"/><br>
 AVATAR_URL = <jsp:getProperty property="avatarUrl" name="loggedUser"/><br>
-SPAM CHECK = <input type="checkbox" checked="checked"><br>
-AMMINISTRATORE = <input type="checkbox"><br>
+SPAM CHECK = <input type="checkbox" disabled="disabled" checked="checked"><br>
+AMMINISTRATORE = <input type="checkbox" disabled="disabled"><br>
 </div>
 
 <br><br>

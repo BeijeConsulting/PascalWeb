@@ -40,7 +40,7 @@ public class ManagerJPA {
 
 	}
 
-	public static void addcommercial(Commerciale c) {
+	public static void addCommercial(Commerciale c) {
 
 		EntityManager entityManager = EntityManagerProvider.getEntityManager();
 
@@ -113,6 +113,28 @@ public class ManagerJPA {
 		entityManager.close();
 
 		return annuncio;
+
+	}
+	
+	public static int searchEstate(String nomeAgenzia) {
+
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+
+		int idAzienda;
+		Commerciale c;
+		Query query = null;
+		try {
+			query = entityManager.createQuery(
+					"SELECT c FROM Commerciale as c WHERE ragione_sociale = '" + nomeAgenzia + "'");
+			c = (Commerciale) query.getSingleResult();
+			idAzienda = c.getId();
+		} catch (NoResultException e) {
+			idAzienda = 0;
+		}
+		
+		entityManager.close();
+
+		return idAzienda;
 
 	}
 	

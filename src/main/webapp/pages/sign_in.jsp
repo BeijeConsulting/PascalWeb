@@ -5,17 +5,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Sign In</title>
-<h1>Pagina di Registrazione</h1>
 </head>
 <body>
+<h1>Pagina di Registrazione Utente</h1>
 <form action="..\register" method="post">
 	  <label for="username">username:</label><br>
 	  <input type="text" name="user_name"><br>
 	  <label for="email">email:</label><br>
 	  <input type="text" name="email"><br>
 	  <label for="password">password:</label><br>
-	  <input type="text" name="pass_word"><br><br>
-	  <input type="submit" value="Submit">
+	  <input type="password" name="pass_word"><br><br>
+	  
+	  <label for="spam">Desideri rimanere aggiornato sulle ultime novità di fondamenta.it?</label>
+	  <input type="checkbox" name="spam"><br><br>
+	  
+	  <input type="submit" value="Registra">
 	</form>
 </body>
 </html>
