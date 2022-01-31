@@ -25,6 +25,7 @@
 		</thead>
 
 		<tbody>
+			<% if(!annunci.isEmpty()) %>
 			<% for (Annuncio annuncio : annunci) {	%>
 			<tr>
 				<td><%= annuncio.getVenditoriId() %></td>

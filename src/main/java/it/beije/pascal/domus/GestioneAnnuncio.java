@@ -111,15 +111,12 @@ public class GestioneAnnuncio {
 	}
 
 	public static List<Annuncio> getAnnunciSalvati(int utenteId) {
-		System.out.println("dsnjadnajdnsaindsaknjdsaindasj    " + utenteId);
 		EntityManager entityManger = EntityManagerProvider.getEntityManager();
-		// JPQL
 
-		// FIXME
 		String jpql = "select a from Annuncio as a where a.id in (select s.annuncioId from AnnunciSalvati as s where s.utenteid = :utenteId)";
 		Query query = entityManger.createQuery(jpql);
 		query.setParameter("utenteId", utenteId); // Contatto contatto = (Contatto)
-		query.getResultList().get(0);
+//		query.getResultList().get(0);
 		List<Annuncio> annunciSalvati = (List<Annuncio>) query.getResultList();
 		entityManger.close();
 
