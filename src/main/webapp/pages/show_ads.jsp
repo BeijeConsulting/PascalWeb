@@ -1,3 +1,4 @@
+<%@page import="it.beije.pascal.bean.Utente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="it.beije.pascal.bean.Annuncio" %>
@@ -11,30 +12,36 @@
 <meta charset="ISO-8859-1">
 <title>HomePage</title>
 </head>
-
-
 <body>
 <h1>Lista annunci</h1>
-
  <% List<Annuncio> adlist= (List<Annuncio>) session.getAttribute("list");
- 	Indirizzo address = new Indirizzo();
+    Indirizzo address = new Indirizzo();
 %>
  
-
 <% for(Annuncio a : adlist){%>
 <form action = "../dettaglio" method="post"> 
 <label name= "annuncio" ><% a.getId(); %></label>
-<%
-	out.println(a.getTipoAnnuncio()+ " " + a.getTipoImmobile() + " " + a.getMq() + ManagerJPA.getAddress(a.getIndirizzoId()).toString());
-	out.println(a.getPrezzo());
-	out.println(a.getLocali());
-	%>
-	</form><br><%
-	}
-
+<% out.println("Tipo annuncio: " + a.getTipoAnnuncio()); %> <br>
+    <%=("Tipo immobile: " + a.getTipoImmobile())  %> <br>
+    <%=("Metri quadrati: " + a.getMq()) %> <br>
+    <%=(ManagerJPA.getAddress(a.getIndirizzoId()).printAddress()) %> <br>
+    <%=("Prezzo: " + a.getPrezzo()) %> <br>
+    <%=("Numero di locali: " + a.getLocali()) %>
+    
+    </form><br><%
+    }
 %>
-
-<form action="../index.html" method="get">
+<% Utente u = (Utente)session.getAttribute("loggedUser");
+String s;
+if(u.isAmministratore()){
+    s = "personal_page_admin.jsp";
+}
+else{
+    s = "personal_page.jsp";
+}
+    
+%>
+<form action="<%= s %>" method="get">
 <input type="submit" value="Home">
 </form>
 </body>

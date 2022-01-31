@@ -92,10 +92,8 @@ public class Indirizzo {
 //		this.annunci = annunci;
 //	}
 	
-	
-	@Override
-	public String toString() {
-		return  indirizzo  +  ", " + nCivico + ", " + comune + ", " + cap ;
+	public String printAddress() {
+		return "Comune: " + comune + ", via: " + indirizzo +  ", cap: " + cap +  ", numero civico: " + nCivico;
 	}
-
+	
 }

@@ -45,7 +45,7 @@ public class GetAds extends HttpServlet {
 		
 
 		request.getSession().setAttribute("list", listann);
-		response.sendRedirect("pages/hpage.jsp");
+		response.sendRedirect("pages/show_ads.jsp");
 	}
 
 }
