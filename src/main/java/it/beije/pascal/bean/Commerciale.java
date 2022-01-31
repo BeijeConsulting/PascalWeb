@@ -106,11 +106,11 @@ public class Commerciale {
 		this.pIva = pIva;
 	}
 
-	public int getIndirizzoId() {
+	public Integer getIndirizzoId() {
 		return indirizzoId;
 	}
 
-	public void setIndirizzoId(int indirizzoId) {
+	public void setIndirizzoId(Integer indirizzoId) {
 		this.indirizzoId = indirizzoId;
 	}
 

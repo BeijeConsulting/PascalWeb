@@ -86,28 +86,28 @@ public class Annuncio {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getVenditoriId() {
+	public Integer getVenditoriId() {
 		return venditoreId;
 	}
-	public void setVenditoriId(int venditoriId) {
+	public void setVenditoriId(Integer venditoriId) {
 		this.venditoreId = venditoriId;
 	}
-	public int getPiantinaId() {
+	public Integer getPiantinaId() {
 		return piantinaId;
 	}
-	public void setPiantinaId(int piantinaId) {
+	public void setPiantinaId(Integer piantinaId) {
 		this.piantinaId = piantinaId;
 	}
-	public int getIndirizzoId() {
+	public Integer getIndirizzoId() {
 		return indirizzoId;
 	}
-	public void setIndirizzoId(int indirizzoId) {
+	public void setIndirizzoId(Integer indirizzoId) {
 		this.indirizzoId = indirizzoId;
 	}
-	public int getEdificioId() {
+	public Integer getEdificioId() {
 		return edificioId;
 	}
-	public void setEdificioId(int edificioId) {
+	public void setEdificioId(Integer edificioId) {
 		this.edificioId = edificioId;
 	}
 	public TipoImmobile getTipoImmobile() {

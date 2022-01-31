@@ -25,19 +25,19 @@ public class AnnunciSalvati {
 	private String avatarurl;
 	
 
-	public int getAnnuncioid() {
+	public Integer getAnnuncioid() {
 		return annuncioid;
 	}
 
-	public void setAnnuncioid(int annuncioid) {
+	public void setAnnuncioid(Integer annuncioid) {
 		this.annuncioid = annuncioid;
 	}
 
-	public int getUtenteid() {
+	public Integer getUtenteid() {
 		return utenteid;
 	}
 
-	public void setUtenteid(int utenteid) {
+	public void setUtenteid(Integer utenteid) {
 		this.utenteid = utenteid;
 	}
 

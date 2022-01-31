@@ -22,10 +22,10 @@ public class Foto {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getAnnuncio_id() {
+	public Integer getAnnuncio_id() {
 		return annuncio_id;
 	}
-	public void setAnnuncio_id(int annuncio_id) {
+	public void setAnnuncio_id(Integer annuncio_id) {
 		this.annuncio_id = annuncio_id;
 	}
 	public String getUrl() {
