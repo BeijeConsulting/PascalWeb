@@ -165,5 +165,25 @@ public class ManagerJPA {
 		entityManager.close();
 
 	}
+	
+	public static void deleteAd(int annuncioId) {
+		EntityManager entityManager = EntityManagerProvider.getEntityManager();
+		Annuncio annuncio;
+		Query query = null;
+		try {
+			query = entityManager.createQuery(
+					"SELECT a FROM Annuncio as a WHERE Id = '" + annuncioId + "'");
+			annuncio = (Annuncio) query.getSingleResult();
+		} catch (NoResultException e) {
+			annuncio = null;
+		}
+		
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		entityManager.remove(annuncio);
+		transaction.commit();
+		entityManager.close();
+		return;
+	}
 
 }

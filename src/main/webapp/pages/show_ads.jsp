@@ -24,11 +24,14 @@
     <%=(ManagerJPA.getAddress(a.getIndirizzoId()).printAddress()) %> <br>
     <%=("Prezzo: " + a.getPrezzo()) %> <br>
     <%=("Numero di locali: " + a.getLocali()) %>
-    <% if(u.isAmministratore()){ %>
-    <form action = "../delete" method="post">
+    <%--
+      <% if(u.isAmministratore()){ %>
+      <%<form action = "../deletead" method="post">
+      <input name="annuncio" value="<%= a.getId() %>" type="hidden">
     <input type="submit" value = "Cancella Annuncio" style="float: right;">
     </form>
     <%} %>
+    --%>
     <form action = "../addpreferito" method="post">
     <input name="annuncio" value="<%= a.getId() %>" type="hidden">
     <input name="utente" value="<%= u.getId() %>" type="hidden">
