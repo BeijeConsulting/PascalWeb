@@ -4,7 +4,7 @@
 	<persistence-unit name="utente">
 		<!-- <class>it.beije.pascal.web.rubrica.bean.Contatto</class>	 -->
 		<class>it.beije.pascal.web.tabella.bean.Contatto</class>	
-		<class>it.beije.pascal.web.authenticator.model.Utente</class>
+<!-- 		<class>it.beije.pascal.web.authenticator.model.Utente</class> -->
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
